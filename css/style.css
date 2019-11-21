@@ -4,13 +4,13 @@
   box-sizing: border-box;
 }
 
-#cockpit{
+#background{
   width: 100%;
   height: 100vh;
   background: url('../assets/images/spaceBorder.jpg')  no-repeat center top;
   background-size: cover;
 }
-#cockpit img{
+#background img{
   width: inherit;
   min-height: inherit;
   height: inherit;
@@ -58,10 +58,11 @@
   background: rgba(255,0,0,.3);
   hoverSound.play();
 }
+/* .buttons:active{
+  animation: buttonShrink .2s;
+} */
 
 #button1{
-  grid-column: 1;
-  grid-row: 1;
 }
 
 #button2{
@@ -77,4 +78,10 @@
 #button4{
   grid-column: 1;
   grid-row: 4;
+}
+
+@keyframes buttonShrink {
+  from {width: 2.5%; height: 6.25%;}
+  to {width: 0%; height: 0%;}
+
 }

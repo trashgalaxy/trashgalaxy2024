@@ -6,19 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js"></script>
-  <title>HolographicDisplayTest</title>
+  <title>Trash Galaxy 2024</title>
 </head>
 <body>
-  <section id="cockpit">
-    <img src="assets/images/Cockpit.png" alt="FUUUCK">
+  <section id="background">
+    <img src="assets/images/cockpits/Cockpit_Red.png" alt="FUUUCK" id="cockpit">
   </section>
   <div class="hologramWrapper">
     <div class="hologramContainer">
         <video src="assets/videos/text_gen.webm" autoplay loop muted id="hologramContent"></video>
-        <figure onclick="changeBG()" onmouseover="hoverSound.play()" class="buttons"></figure></a>
-        <figure onmouseover="hoverSound.play()" class="buttons"></figure></a>
-        <figure onmouseover="hoverSound.play()" class="buttons"></figure></a>
-        <figure onmouseover="hoverSound.play()" class="buttons"></figure></a>
+        <figure onclick="changeCockpit('button1')" onmouseover="hoverSound.play()" class="buttons"></figure></a>
+        <figure onclick="changeBG('button2')" onmouseover="hoverSound.play()" class="buttons"></figure></a>
+        <figure onclick="changeBG('button3')" onmouseover="hoverSound.play()" class="buttons"></figure></a>
+        <figure onclick="changeBG('button4')" onmouseover="hoverSound.play()" class="buttons"></figure></a>
     </div>
   </div>
 </body>
