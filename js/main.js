@@ -20,7 +20,8 @@ let bgImages = ['assets/images/liftOff.jpg', 'assets/images/spaceBorder.jpg', 'a
 let bgImage = 0;
 
 function changeBG(){
-   var bg = document.getElementById('cockpit').style.background = 'url('+bgImages[bgImage]+') no-repeat center bottom';
+   var bg = document.getElementById('cockpit').style.background = 'url('+bgImages[bgImage]+') no-repeat center top';
+      var bg = document.getElementById('cockpit').style.backgroundSize = 'cover';
    bgImage++
    if (bgImage >= bgImages.length){
      bgImage = 0;
