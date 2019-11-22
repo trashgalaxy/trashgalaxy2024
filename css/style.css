@@ -4,12 +4,24 @@
   box-sizing: border-box;
 }
 
+body{
+  height: 100vh;
+  overflow: hidden;
+
+}
+
 #background{
   width: 100%;
   height: 100vh;
   background: url('../assets/images/spaceBorder.jpg')  no-repeat center top;
   background-size: cover;
 }
+
+#cockpit{
+  object-fit: cover;
+  object-position: bottom;
+}
+
 #background img{
   width: inherit;
   min-height: inherit;
@@ -22,9 +34,9 @@
   left: 0%;
   width:100%;
   height:100vh;
-  /* padding-bottom: calc(100%*9/16); */
-  max-height: 100vh;
-  border: 1px solid red;
+  /* padding-bottom: calc(100%*9/16); */ */
+   max-height: 100vh;
+  /* border: 1px solid red; */
 }
 
 .hologramContainer{

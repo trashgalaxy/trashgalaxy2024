@@ -36,7 +36,7 @@ let cockpitImage = 0;
 
 
 //=======================//
-//      changeBG
+//      changeBG()
 //=======================//
 //
 //Changes the background image on call, by cycling through the background
@@ -57,6 +57,12 @@ function changeBG(button){
 }
 
 
+//=======================//
+//    changeCockpit()
+//=======================//
+//
+//Changes the background image on call, by cycling through the background
+// image array
 function changeCockpit(button){
   // let thebutton = button;
   // console.log(thebutton);
