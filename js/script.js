@@ -19,6 +19,7 @@ let backgroundVideoArray = ['assets/videos/motorCycle.mp4',
 let backgroundVideoIndex = 0;
 
 
+
 //~~~~~Hologram Video Variables~~~~~~//
 let hologramVideoArray = ['assets/videos/Border_Text.webm',
                           'assets/videos/Trump_Speech.webm'];
