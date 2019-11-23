@@ -7,32 +7,32 @@ let timelineState;
 
 //~~~~~sound variables~~~~~~//
 let hoverSound = new Audio();
-let video1 = 'assets/videos/video1.webm';
+let video1 = 'videos/video1.webm';
 
 //~~~~~load sounds into the variables  (for HTML)~~~~~~//
-hoverSound.src = 'assets/sounds/tick.mp3';
+hoverSound.src = 'sounds/tick.mp3';
 
 //~~~~~Background Video Variables~~~~~~//
-let backgroundVideoArray = ['assets/videos/motorCycle.mp4',
-                        'assets/videos/text_gen.webm',
-                        'assets/videos/Road_Zoom.mp4'];
+let backgroundVideoArray = ['videos/motorCycle.mp4',
+                        'videos/text_gen.webm',
+                        'videos/Road_Zoom.mp4'];
 let backgroundVideoIndex = 0;
 
 //test
 
 //~~~~~Hologram Video Variables~~~~~~//
-let hologramVideoArray = ['assets/videos/Border_Text.webm',
-                          'assets/videos/Trump_Speech.webm'];
+let hologramVideoArray = ['videos/Border_Text.webm',
+                          'videos/Trump_Speech.webm'];
 let hologramVideoIndex = 0;
 
 
 
 //~~~~~Cockpit Image Variables~~~~~~//
-let cockpitImageArray = ['assets/images/cockpits/Cockpit_Blue.png',
-                      'assets/images/cockpits/Cockpit_Green.png',
-                      'assets/images/cockpits/Cockpit_Purple.png',
-                      'assets/images/cockpits/Cockpit_Red.png',
-                      'assets/images/cockpits/Cockpit_White.png'];
+let cockpitImageArray = ['images/cockpits/Cockpit_Blue.png',
+                      'images/cockpits/Cockpit_Green.png',
+                      'images/cockpits/Cockpit_Purple.png',
+                      'images/cockpits/Cockpit_Red.png',
+                      'images/cockpits/Cockpit_White.png'];
 let cockpitImageIndex = 0;
 
 
