@@ -7,22 +7,67 @@
 body{
   height: 100vh;
   overflow: hidden;
-
 }
 
-#background{
+#splash{
+  position: absolute;
+  display: flex;
   width: 100%;
   height: 100vh;
-  background: url('../assets/images/spaceBorder.jpg')  no-repeat center top;
-  background-size: cover;
+  z-index: 10000;
+  background-color: rgba(0,0,0,.75);
+}
+#enterButton{
+  position: relative;
+  display: flex;
+  color: black;
+  background-color: rgba(255, 0, 0, .75);
+  left: 50%;
+  top: 50vh;
+  width: auto;
+  height: 5vh;
+  justify-content: center;
+  border: 1px solid red;
+  text-decoration: none;
 }
 
+#enterButton:hover{
+  background-color: rgba(255, 0, 0, 1);
+}
+
+#enterButton:visited{
+color: rgba(0,0,0,.75);
+}
+
+
+#background{
+  position: fixed;
+  min-width: 100%;
+  min-height: 100vh;
+  z-index: -1000;
+}
+ #backgroundVideo{
+   position: inherit;
+   left: 0%;
+   bottom: 0%;
+   min-width: inherit;
+   min-height: inherit;
+
+ }
+
 #cockpit{
+  width: 100%;
+  height: 100vh;
+  /* background: url('../assets/images/spaceBorder.jpg')  no-repeat center top;
+  background-size: cover; */
+}
+
+#cockpitStyle{
   object-fit: cover;
   object-position: bottom;
 }
 
-#background img{
+#cockpit img{
   width: inherit;
   min-height: inherit;
   height: inherit;
@@ -34,9 +79,7 @@ body{
   left: 0%;
   width:100%;
   height:100vh;
-  /* padding-bottom: calc(100%*9/16); */ */
    max-height: 100vh;
-  /* border: 1px solid red; */
 }
 
 .hologramContainer{
@@ -78,18 +121,12 @@ body{
 }
 
 #button2{
-  grid-column: 1;
-  grid-row: 2;
 }
 
 #button3{
-  grid-column: 1;
-  grid-row: 3;
 }
 
 #button4{
-  grid-column: 1;
-  grid-row: 4;
 }
 
 @keyframes buttonShrink {
