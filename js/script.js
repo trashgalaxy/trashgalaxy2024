@@ -3,7 +3,6 @@
 
 //~~~~Current stage in the game~~~~
 let timelineArray = ["splash", "leavingEarth", "trans1", "border", "trans2", "museum", "trans3", "mars"];
-
 let timelineIndex = 0;
 
 //~~~~~sound variables~~~~~~//
@@ -15,15 +14,16 @@ marioSound.src = 'sounds/mario.mp3';
 
 //~~~~~Background Video Variables~~~~~~//
 let backgroundVideoArray = ['videos/LiftOff.webm',
-                          'videos/space.mp4',
-                          'videos/space.mp4'];
+                          'videos/Trans_1.webm',
+                          'videos/Space_Border.webm'];
 let backgroundVideoIndex = 0;
 
 
 
 //~~~~~Hologram Video Variables~~~~~~//
 let hologramVideoArray = ['videos/Trump_Speech.webm',
-                        'videos/starman.webm'];
+                        'videos/starman.webm',
+                        'videos/Border_Text.webm'];
 let hologramVideoIndex = 0;
 
 
@@ -52,10 +52,10 @@ function leavingEarth(){
   //hide the splash screen
   let splashScreen = document.getElementById('splash').style.visibility = "hidden";
   //Set the hologram button(s) visibillity
-  let buttonState = document.getElementById('button1').style.visibility = "visible";
-  buttonState = document.getElementById('button2').style.visibility = "visible";
-  buttonState = document.getElementById('button3').style.visibility = "visible";
-  buttonState = document.getElementById('button4').style.visibility = "visible";
+  let buttonState = document.getElementById('button1').style.visibility = "hidden";
+  buttonState = document.getElementById('button2').style.visibility = "hidden";
+  buttonState = document.getElementById('button3').style.visibility = "hidden";
+  buttonState = document.getElementById('button4').style.visibility = "hidden";
   //set and play the appropriate background video
   let bgVid = document.getElementById('backgroundVideo');
   bgVid.src = backgroundVideoArray[0];
@@ -97,7 +97,7 @@ function trans1(){
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
   //Set the hologram button(s) visibillity
-  let buttonState = document.getElementById('button1').style.visibility = "visible";
+  let buttonState = document.getElementById('button1').style.visibility = "hidden";
   buttonState = document.getElementById('button2').style.visibility = "hidden";
   buttonState = document.getElementById('button3').style.visibility = "hidden";
   buttonState = document.getElementById('button4').style.visibility = "hidden";
@@ -105,6 +105,7 @@ function trans1(){
     //button1
   let button1Fun = document.getElementById('button1').onclick = function(){
     let holoVid = document.getElementById('hologramContent');
+
     holoVid.src = hologramVideoArray[1];
     holoVid.play();;
   };
@@ -118,6 +119,7 @@ function trans1(){
   //set and play the appropriate background video
   let bgVid = document.getElementById('backgroundVideo');
   bgVid.src = backgroundVideoArray[1];
+  bgVid.loop = true;
   bgVid.play();
   //set the cockpit hologram orb colors
   cockColor = document.getElementById('cockpitStyle').src = cockpitColors["purple"];
@@ -130,12 +132,13 @@ function trans1(){
     checkHoliEnd.onended = function() {
     //set the cockpit hologram orb color back to white
     let cockColor = document.getElementById('cockpitStyle').src = cockpitColors["white"];
-    };
-  //check when background video is done playing
-  let checkBgEnd = document.getElementById("backgroundVideo");
-  checkBgEnd.onended = function() {
     border();
     };
+  //check when background video is done playing
+  // let checkBgEnd = document.getElementById("backgroundVideo");
+  // checkBgEnd.onended = function() {
+  //   //border();
+  //   };
 }
 
 
@@ -151,42 +154,39 @@ function border(){
 
   let buttonState = document.getElementById('button1').style.visibility = "visible";
   buttonState = document.getElementById('button2').style.visibility = "visible";
-  buttonState = document.getElementById('button3').style.visibility = "hidden";
-  buttonState = document.getElementById('button4').style.visibility = "hidden";
+  buttonState = document.getElementById('button3').style.visibility = "visible";
+  buttonState = document.getElementById('button4').style.visibility = "visible";
   //set functionality of buttons
     //button1
   let button1Fun = document.getElementById('button1').onclick = function(){
     let holoVid = document.getElementById('hologramContent');
-    holoVid.src = hologramVideoArray[1];
+    holoVid.src = hologramVideoArray[2];
     holoVid.play();;
   };
     //button2
     let button2Fun = document.getElementById('button2').onclick = amazonJourney();
-    //set the cockpit hologram orb colors
-    let cockColor = document.getElementById('cockpitStyle').src = cockpitColors["red"];
   //set and play the appropriate background video
   let bgVid = document.getElementById('backgroundVideo');
-  bgVid.src = backgroundVideoArray[1];
+  bgVid.src = backgroundVideoArray[2];
   bgVid.play();
   //set the cockpit hologram orb colors
-  cockColor = document.getElementById('cockpitStyle');
-  cockColor.src = cockpitColors["red"];
+  cockColor = document.getElementById('cockpitStyle').src = cockpitColors["green"];
   //play the appropriate video on the holo-console
   let holoVid = document.getElementById('hologramContent');
-  holoVid.src = hologramVideoArray[1];
-  holoVid.loop = true;
+  holoVid.src = hologramVideoArray[2];
+  //holoVid.loop = true;
   holoVid.play();
     //check when hologram video is done playing
-    let checkHoliEnd = document.getElementById("hologramContent");
-    checkHoliEnd.onended = function() {
-    //set the cockpit hologram orb color back to white
-    let cockColor = document.getElementById('cockpitStyle').src = cockpitColors["white"];
-    };
+    // let checkHoliEnd = document.getElementById("hologramContent");
+    // checkHoliEnd.onended = function() {
+    // //set the cockpit hologram orb color back to white
+    // let cockColor = document.getElementById('cockpitStyle').src = cockpitColors["white"];
+    // };
   //check when background video is done playing
-  let checkBgEnd = document.getElementById("backgroundVideo");
-  checkBgEnd.onended = function() {
-    //border();
-    };
+  // let checkBgEnd = document.getElementById("backgroundVideo");
+  // checkBgEnd.onended = function() {
+  //   //border();
+  //   };
 }
 
 //opens a new window with the planet amazon
