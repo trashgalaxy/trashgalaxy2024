@@ -118,15 +118,19 @@ color: rgba(0,0,0,.75);
 } */
 
 #button1{
+  visibility: hidden;
 }
 
 #button2{
+  visibility: hidden;
 }
 
 #button3{
+  visibility: hidden;
 }
 
 #button4{
+  visibility: hidden;
 }
 
 @keyframes buttonShrink {
