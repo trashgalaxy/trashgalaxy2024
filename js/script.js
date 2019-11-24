@@ -14,7 +14,7 @@ hoverSound.src = 'sounds/tick.mp3';
 marioSound.src = 'sounds/mario.mp3';
 
 //~~~~~Background Video Variables~~~~~~//
-let backgroundVideoArray = ['videos/LiftOff.mp4',
+let backgroundVideoArray = ['videos/LiftOff.webm',
                           'videos/space.mp4',
                           'videos/space.mp4'];
 let backgroundVideoIndex = 0;
@@ -112,18 +112,15 @@ function trans1(){
     let button2Fun = document.getElementById('button2').onclick = function(){
       let holoVid = document.getElementById('hologramContent');
       holoVid.src = hologramVideoArray[1];
-      holoVid.play();;
+      holoVid.play();
     };
-    //set the cockpit hologram orb colors
-    let cockColor = document.getElementById('cockpitStyle').src = cockpitColors["purple"];
 
   //set and play the appropriate background video
   let bgVid = document.getElementById('backgroundVideo');
   bgVid.src = backgroundVideoArray[1];
   bgVid.play();
   //set the cockpit hologram orb colors
-  cockColor = document.getElementById('cockpitStyle');
-  cockColor.src = cockpitColors["green"];
+  cockColor = document.getElementById('cockpitStyle').src = cockpitColors["purple"];
   //play the appropriate video on the holo-console
   let holoVid = document.getElementById('hologramContent');
   holoVid.src = hologramVideoArray[1];
@@ -140,6 +137,7 @@ function trans1(){
     border();
     };
 }
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //~~~~~~PART 2: BORDERLINE CRIMINAL~~~~~~~~
@@ -196,11 +194,6 @@ function border(){
 function amazonJourney(){
   window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/project2", "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
 }
-
-
-
-
-
 
 
 
