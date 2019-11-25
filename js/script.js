@@ -47,6 +47,16 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
                     "red": "rgba(255,0,0,.3)",
                     "redHover": "rgba(255,0,0,.7)"};
 
+
+  function preload(){
+    for (let i = 0; i < backgroundVideoArray.length; i++){
+      backgroundVideoArray[i] = new video
+    }
+    for (let i = 0; i < hologramVideoArray.length; i++){
+      hologramVideoArray[i] = new
+    }
+  }
+
   //holi-console buttons
   let button = [document.getElementById('button1'),
                 document.getElementById('button2'),
@@ -63,6 +73,7 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
 
   //background video
   let bgVid = document.getElementById('backgroundVideo');
+
 
 
 
