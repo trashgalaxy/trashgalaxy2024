@@ -50,7 +50,7 @@ color: rgba(0,0,0,.75);
 
  #backgroundVideo{
    position: inherit;
-   left: 0%;
+   /* left: 0%; */
    bottom: 0%;
    min-width: inherit;
    min-height: inherit;
@@ -112,10 +112,10 @@ color: rgba(0,0,0,.75);
   left: 31%;
   background: rgba(0,255,0,.3);
 }
-.buttons:hover{
-  background: rgba(255,0,0,.3);
+/* .buttons:hover{
+  background: rgba(0,255,0,.7);
   hoverSound.play();
-}
+} */
 /* .buttons:active{
   animation: buttonShrink .2s;
 } */
@@ -123,6 +123,7 @@ color: rgba(0,0,0,.75);
 #button1{
   visibility: hidden;
 }
+
 #button2{
   visibility: hidden;
 }
