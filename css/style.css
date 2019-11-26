@@ -17,6 +17,11 @@ body{
   z-index: 10000;
   background-color: rgba(0,0,0,.75);
 }
+#videoLoad{
+  position: fixed;
+  visibility: hidden;
+  z-index: -1000;
+}
 
 #enterButton{
   position: relative;

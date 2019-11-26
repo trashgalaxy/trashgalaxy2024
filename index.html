@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
-
-  <link rel="preload" as="fetch" href="videos/LiftOff.webm">
-  <link rel="preload" as="fetch" href="videos/Trans_1.webm">
-  <link rel="preload" as="fetch" href="videos/Space_Border.webm">
-  <link rel="preload" as="fetch" href="videos/Trump_Speech.webm">
-  <link rel="preload" as="fetch" href="videos/starman.webm">
-  <link rel="preload" as="fetch" href="videos/Border_Text.webm">
-
   <title>Trash Galaxy 2024</title>
 </head>
-<body>
+<body id="mainContnt">
   <section id="splash">
+    <section id="videoLoad">
+      <video src="videos/LiftOff.webm" preload="metadata" onload="videoDone()">
+      </video>
+    </section>
     <div id="enterButton">
-      <a href="#" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
+      <a href="" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
     </div>
 
   </section>

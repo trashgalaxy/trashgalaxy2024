@@ -65,7 +65,9 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
   let bgVid = document.getElementById('backgroundVideo');
 
 
-
+function videoDone(){
+  console.log('done!');
+}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //~~~~~~~~~~~PART 1: LEAVING EARTH~~~~~~~~
