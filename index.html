@@ -8,23 +8,22 @@
   <title>Trash Galaxy 2024</title>
 </head>
 <body id="mainContnt">
-  <section id="splash">
-    <section id="videoLoad">
-      <video src="videos/Trump_Speech.webm" preload="auto" oncanplaythrough="videoDone()">
-      </video>
-    </section>
-    <div id="enterButton">
-      <a href="" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
-    </div>
 
+  <section id="splash">>
+    <div id="enterButton">
+      <a href="#" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
+    </div>
   </section>
-  <!-- This section is  only for thebackground video. Its content is chosen by the  -->
+
+  <!-- This section is  only for thebackground video-->
   <section id="background">
     <video src="videos/LiftOff.webm" id="backgroundVideo"></video>
   </section>
+
   <section id="cockpit">
     <img src="images/cockpits/Cockpit_White.png" alt="FUUUCK" id="cockpitStyle">
-  </section onload="loadButtons()">
+  </section>
+
   <div class="hologramWrapper">
     <div class="hologramContainer">
         <video src="videos/Trump_Speech.webm" id="hologramContent"></video>
@@ -34,6 +33,7 @@
         <figure onclick="handleButtons('button3')" class="buttons" id="button4"><p><</p></figure></a>
     </div>
   </div>
+
 </body>
   <script src="js/script.js"></script>
 </html>

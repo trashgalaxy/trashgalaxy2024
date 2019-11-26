@@ -65,9 +65,7 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
   let bgVid = document.getElementById('backgroundVideo');
 
 
-function videoDone(){
-  console.log('done!');
-}
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //~~~~~~~~~~~PART 1: LEAVING EARTH~~~~~~~~
@@ -79,7 +77,7 @@ function leavingEarth(){
   //   audio: true,
   //   video: true
   // })
-
+console.log('hello');
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
   //hide the splash screen
@@ -89,7 +87,7 @@ function leavingEarth(){
   button[0].style.visibility = "visible";
   button[1].style.visibility = "visible";
   button[2].style.visibility = "visible";
-  button[3].style.visibility = "visible";
+  button[3].style.visibility = "hidden";
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -105,18 +103,23 @@ function leavingEarth(){
   };
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button1: RAISE VIDEO VOLUME
-    button1.onclick = function(){
+    //button0: RAISE VIDEO VOLUME
+    button[0].onclick = function(){
     holoVid.volume = holoVid.volume + .2;
   };
-    //button2: LOWER VIDEO VOLUME
-    button2.onclick = function(){
+    //button1: LOWER VIDEO VOLUME
+    button[1].onclick = function(){
         holoVid.volume = holoVid.volume - .2;
     };
-    //button3: skip to next sequence
-    button3.onclick = function(){
+    //button2: skip to next sequence
+    button[2].onclick = function(){
         trans1();
     };
+
+    //button3: HIDDEN
+    // button[3].onclick = function(){
+    //
+    // };
 
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVid.src = backgroundVideoArray[0];
@@ -161,7 +164,7 @@ function trans1(){
   button[0].style.visibility = "visible";
   button[1].style.visibility = "visible";
   button[2].style.visibility = "visible";
-  button[3].style.visibility = "hidden";
+  button[3].style.visibility = "visible";
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -176,19 +179,22 @@ function trans1(){
     };
   };
 
-
   //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button1: RAISE VOLUME
-  button1.onclick = function(){
+    //button0: RAISE VOLUME
+  button[0].onclick = function(){
     holoVid.volume = holoVid.volume + .2;
   };
-    //button2: LOWER VOLUME
-  button2.onclick = function(){
+    //button1: LOWER VOLUME
+  button[1].onclick = function(){
       holoVid.volume = holoVid.volume - .2;
     };
-    //button3 SKIP TO NEXT SEQUENCE
-  button3.onclick = function(){
+    //button2 SKIP TO NEXT SEQUENCE
+  button[2].onclick = function(){
       border();
+    };
+    //button3 RETURN TO PREVIOUS SEQUENCE
+  button[3].onclick = function(){
+      leavingEarth();
     };
 
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
@@ -210,6 +216,7 @@ function trans1(){
     };
     //set the cockpit hologram orb color back to white
     cockColor.src = cockpitColors["white"];
+    //advance to next sequence
     border();
     };
 
@@ -249,14 +256,23 @@ function border(){
   };
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button1 NEED TO CHANGE THIS
-    button1.onclick = function(){
-    holoVid.src = hologramVideoArray[2];
-    holoVid.play();;
-  };
-    //button2
-    button2.onclick = amazonJourney();
-
+    //button0 TBD
+    button[0].onclick = function(){
+    console.log('button0');
+    };
+  //button1 TBD
+  button[1].onclick = function(){
+  console.log('button1');
+    };
+    //button2 OPEN JOURNEY TO PLANET AMAZON GAME
+    button[2].onclick = function(){
+      window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/Project2",
+              "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
+    };
+    //button3 TBD
+    button[3].onclick = function(){
+    console.log('button3');
+    };
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVid.src = backgroundVideoArray[2];
   bgVid.play();
@@ -273,26 +289,9 @@ function border(){
   // //set the cockpit hologram orb color back to white
   // cockColor.src = cockpitColors["white"];
   // };
-  //check when background video is done playing
+
+  //~~~~~~~~check when background video is done playing~~~~~~~~
   // bgVid.onended = function() {
   //   //border();
   //   };
-}
-
-//opens a new window with the planet amazon
-//
-function amazonJourney(){
-  window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/project2",
-          "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
-}
-
-
-
-//=======================//
-//    need to fix This
-//=======================//
-//
-function mouseMoved() {
-  //console.log("moved");
-  getAudioContext().resume()
 }
