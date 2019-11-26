@@ -233,6 +233,7 @@ function trans1(){
 //
 //
 function border(){
+
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
 
@@ -266,7 +267,7 @@ function border(){
     };
     //button2 OPEN JOURNEY TO PLANET AMAZON GAME
     button[2].onclick = function(){
-      window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/Project2",
+      window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/Project3",
               "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
     };
     //button3 TBD
@@ -276,7 +277,11 @@ function border(){
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVid.src = backgroundVideoArray[2];
   bgVid.play();
-
+  //initiate the annoying border alerts
+  alert('YOU ARE EXITING THE PUBLIC SECTOR\nPREPARE TO BE SCRUTINIZED');
+  alert('PRESS OK TO GIVE ACCESS TO YOUR LOCATION');
+  alert('PRESS OK TO TURN ON YOUR CAMERA');
+  alert('PRESS OK TO PROVIDE A DNA SAMPLE');
   //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
   cockColor.src = cockpitColors["green"];
   //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~
