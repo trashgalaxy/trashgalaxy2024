@@ -8,9 +8,11 @@ let timelineIndex = 0;
 //~~~~~sound variables~~~~~~//
 let hoverSound = new Audio();
 let marioSound = new Audio();
+let welcomeCitizen = new Audio();
 //~~~~~load sounds into the variables  (for HTML)~~~~~~//
 hoverSound.src = 'sounds/tick.mp3';
 marioSound.src = 'sounds/mario.mp3';
+welcomeCitizen.src = 'sounds/Welcome_Citizen.wav';
 
 //~~~~~Background Video Variables~~~~~~//
 let backgroundVideoArray = ['videos/LiftOff.webm',
@@ -129,9 +131,9 @@ console.log('hello');
 
   //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~
   //
-  //let holoVid = document.getElementById('hologramContent');
   holoVid.src = hologramVideoArray[0];
   holoVid.play();
+
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
@@ -277,11 +279,14 @@ function border(){
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVid.src = backgroundVideoArray[2];
   bgVid.play();
+  //~~~~~
+  welcomeCitizen.loop = false;
+  welcomeCitizen.play();
   //initiate the annoying border alerts
-  alert('YOU ARE EXITING THE PUBLIC SECTOR\nPREPARE TO BE SCRUTINIZED');
-  alert('PRESS OK TO GIVE ACCESS TO YOUR LOCATION');
-  alert('PRESS OK TO TURN ON YOUR CAMERA');
-  alert('PRESS OK TO PROVIDE A DNA SAMPLE');
+  // alert('YOU ARE EXITING THE PUBLIC SECTOR\nPREPARE TO BE SCRUTINIZED');
+  // alert('PRESS OK TO GIVE ACCESS TO YOUR LOCATION');
+  // alert('PRESS OK TO TURN ON YOUR CAMERA');
+  // alert('PRESS OK TO PROVIDE A DNA SAMPLE');
   //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
   cockColor.src = cockpitColors["green"];
   //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~

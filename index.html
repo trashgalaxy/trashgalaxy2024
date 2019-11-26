@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <script src = "https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
   <title>Trash Galaxy 2024</title>
 </head>
 <body id="mainContnt">
+
+  <div id="progress"></div>
 
   <section id="splash">>
     <div id="enterButton">
@@ -15,7 +18,7 @@
     </div>
   </section>
 
-  <!-- This section is  only for thebackground video-->
+
   <section id="background">
     <video src="videos/LiftOff.webm" id="backgroundVideo"></video>
   </section>
@@ -26,6 +29,7 @@
 
   <div class="hologramWrapper">
     <div class="hologramContainer">
+      <div id="test"></div>
         <video src="videos/Trump_Speech.webm" id="hologramContent"></video>
         <figure onclick="handleButtons('button1')" class="buttons" id="button1"><p>+</p></figure></a>
         <figure onclick="handleButtons('button2')" class="buttons" id="button2"><p>-</p></figure></a>
@@ -34,6 +38,71 @@
     </div>
   </div>
 
+
+
+  <!-- <script>
+    var queue  = new createjs.LoadQueue();
+    queue.installPlugin(createjs.Sound);
+    queue.on("complete", handleComplete, this);
+    queue.loadFile({id: "sound", src:"sounds/MistileLaunch.mp3"});
+
+    function handleComplete(){
+      createjs.Sound.play("sound");
+
+    }
+  </script> -->
+
+
+
+
+
+
+
+
+
+
+  <script>
+  let videoArray = [];
+  let progress = document.getElementById('progress');
+  let gallery = document.getElementById('gallery');
+
+  var queue = new createjs.LoadQueue(false);
+
+  // queue.on("progress", event => {
+  //   let progress = Math.floor(event.progress *100);
+  //   this.progress.style.width = progress+'%';
+  //   if (progress == 100) {
+  //     console.log('all done');
+  //     document.querySelector('body').style.background = 'white';
+  //   }
+  // });
+  //
+  // queue.on("complete", event => {
+  //   //gallery.classList.add('fadeIn');
+  //   progress.classList.add('fadeOut');
+  // });
+  queue.on("fileload", handeFileComplete);
+  queue.loadFile('videos/Trump_Speech.webm');
+  queue.loadFile('videos/LiftOff.webm');
+  queue.loadFile('videos/Trans_1.webm');
+  queue.loadFile('videos/Space_Border.webm');
+  queue.loadFile('videos/starman.webm');
+  queue.loadFile('videos/Border_Text.webm');
+  queue.loadFile('images/cockpits/Cockpit_Blue.png');
+  queue.loadFile('images/cockpits/Cockpit_Green.png');
+  queue.loadFile('images/cockpits/Cockpit_Purple.png');
+  queue.loadFile('images/cockpits/Cockpit_Red.png');
+  queue.loadFile('images/cockpits/Cockpit_White.png');
+
+
+
+  function handeFileComplete(event){
+    var item = event.item;    
+    videoArray.push(item);
+  }
+  </script>
 </body>
+
+
   <script src="js/script.js"></script>
 </html>

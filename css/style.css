@@ -7,14 +7,31 @@
 body{
   height: 100vh;
   overflow: hidden;
+  background: rgb(29,29,29);
+  transition: backgroundColor 2s ease;
 }
+
+#progress{
+  height: 1px;
+  background: rgb(126, 126, 126);
+  position: absolute;
+  top: 45%;
+  opacity: 1;
+  z-index: 100;
+  transition: width .1s ease;
+}
+.fadeOut {
+  opacity: 0 !important;
+  transition: opacity 2s !important;
+}
+
 
 #splash{
   position: absolute;
   display: flex;
   width: 100%;
   height: 100vh;
-  z-index: 10000;
+  z-index: 99;
   background-color: rgba(0,0,0,.75);
 }
 
@@ -139,5 +156,12 @@ color: rgba(0,0,0,.75);
 @keyframes buttonShrink {
   from {width: 2.5%; height: 6.25%;}
   to {width: 0%; height: 0%;}
+
+}
+@@keyframes fadeOut {
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
 
 }
