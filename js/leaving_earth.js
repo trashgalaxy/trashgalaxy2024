@@ -12,7 +12,6 @@ function leavingEarth(){
   //   audio: true,
   //   video: true
   // })
-console.log('hello');
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
   //hide the splash screen
