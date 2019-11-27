@@ -15,9 +15,18 @@ marioSound.src = 'sounds/mario.mp3';
 welcomeCitizen.src = 'sounds/Welcome_Citizen.wav';
 
 //~~~~~Background Video Variables~~~~~~//
-let videoArray = [];
-let videoIndex = 0;
+let backgroundVideoArray = ['videos/LiftOff.webm',
+                          'videos/Trans_1.webm',
+                          'videos/Space_Border.webm'];
+let backgroundVideoIndex = 0;
 
+
+
+//~~~~~Hologram Video Variables~~~~~~//
+let hologramVideoArray = ['videos/Trump_Speech.webm',
+                        'videos/starman.webm',
+                        'videos/Border_Text.webm'];
+let hologramVideoIndex = 0;
 
 
 //~~~~~Cockpit Image Variables~~~~~~//
@@ -49,13 +58,13 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
   let numOfButtons = 4;
 
   //holo-console video
-  let holoVidCont = document.getElementById('hologramContent');
+  let holoVid = document.getElementById('hologramContent');
 
   //cockpit color
   let cockColor = document.getElementById('cockpitStyle');
 
   //background video
-  let bgVidCont = document.getElementById('backgroundVideo');
+  let bgVid = document.getElementById('backgroundVideo');
 
 
 
@@ -66,10 +75,6 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
 //
 //
 function leavingEarth(){
-
-  //pull the appropriate videos for the sequence
-  let holoVid = videoArray[0];
-  let bgVid = videoArray[1];
   // window.mediaDevices.getUserMedia({
   //   audio: true,
   //   video: true
@@ -119,7 +124,7 @@ console.log('hello');
     // };
 
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
-  bgVidCont.appendChild(bgVid);
+  bgVid.src = backgroundVideoArray[0];
   bgVid.play();
 
 
@@ -128,12 +133,17 @@ console.log('hello');
 
   //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~
   //
-  holoVidCont.appendChild(holoVid);
-  holoVid.play();
-  //hologramVideoArray[0].remove();
+  // holoVid.src = hologramVideoArray[0];
+  // holoVid.play();
+
+  //let testvid = document.getElementById('hologramContent');
+  holoVid.appendChild(videoArray[0]);
+  videoArray[0].play();
+
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
+  videoArray[0].parentNode.removeChild(videoArray[0]);
   //hide the cockpit buttons
     for (let i = 0; i < button.length; i++){
       button[i].style.visibility = "hidden";
@@ -156,11 +166,6 @@ console.log('hello');
 //
 //
 function trans1(){
-
-  //pull the appropriate videos for the sequence
-  let holoVid = videoArray[2];
-  let bgVid = videoArray[3];
-
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
 
@@ -202,14 +207,14 @@ function trans1(){
     };
 
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
-  bgVidCont.appendChild(bgVid);
+  bgVid.src = backgroundVideoArray[1];
+  bgVid.loop = true;
   bgVid.play();
 
   //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
   cockColor.src = cockpitColors["purple"];
-
-  ///~~~~~~~~/play the appropriate video on the holo-console//~~~~~~~~
-  holoVidCont.appendChild(holoVid);
+  //play the appropriate video on the holo-console
+  holoVid.src = hologramVideoArray[1];
   holoVid.play();
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
@@ -237,10 +242,6 @@ function trans1(){
 //
 //
 function border(){
-
-  //pull the appropriate videos for the sequence
-  let holoVid = videoArray[4];
-  let bgVid = videoArray[5];
 
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
@@ -282,18 +283,23 @@ function border(){
     button[3].onclick = function(){
     console.log('button3');
     };
-    
-    //~~~~~~~~set and play the appropriate background video~~~~~~~~
-    bgVidCont.appendChild(bgVid);
-    bgVid.play();
-
-    //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
-    cockColor.src = cockpitColors["red"];
-
-    ///~~~~~~~~/play the appropriate video on the holo-console//~~~~~~~~
-    holoVidCont.appendChild(holoVid);
-    holoVid.play();
-
+  //~~~~~~~~set and play the appropriate background video~~~~~~~~
+  bgVid.src = backgroundVideoArray[2];
+  bgVid.play();
+  //~~~~~
+  welcomeCitizen.loop = false;
+  welcomeCitizen.play();
+  //initiate the annoying border alerts
+  // alert('YOU ARE EXITING THE PUBLIC SECTOR\nPREPARE TO BE SCRUTINIZED');
+  // alert('PRESS OK TO GIVE ACCESS TO YOUR LOCATION');
+  // alert('PRESS OK TO TURN ON YOUR CAMERA');
+  // alert('PRESS OK TO PROVIDE A DNA SAMPLE');
+  //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
+  cockColor.src = cockpitColors["green"];
+  //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~
+  holoVid.src = hologramVideoArray[2];
+  //holoVid.loop = true;
+  holoVid.play();
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   // holoVid.onended = function() {

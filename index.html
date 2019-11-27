@@ -20,7 +20,7 @@
 
 
   <section id="background">
-    <video src="videos/LiftOff.webm" id="backgroundVideo"></video>
+    <div id="backgroundVideo"></div>
   </section>
 
   <section id="cockpit">
@@ -29,8 +29,8 @@
 
   <div class="hologramWrapper">
     <div class="hologramContainer">
-      <div id="test"></div>
-        <video src="videos/Trump_Speech.webm" id="hologramContent"></video>
+      <div id="hologramContent"></div>
+        <!-- <video src="videos/Trump_Speech.webm" id="hologramContent"></video> -->
         <figure onclick="handleButtons('button1')" class="buttons" id="button1"><p>+</p></figure></a>
         <figure onclick="handleButtons('button2')" class="buttons" id="button2"><p>-</p></figure></a>
         <figure onclick="handleButtons('button3')" class="buttons" id="button3"><p>></p></figure></a>
@@ -38,36 +38,9 @@
     </div>
   </div>
 
-
-
-  <!-- <script>
-    var queue  = new createjs.LoadQueue();
-    queue.installPlugin(createjs.Sound);
-    queue.on("complete", handleComplete, this);
-    queue.loadFile({id: "sound", src:"sounds/MistileLaunch.mp3"});
-
-    function handleComplete(){
-      createjs.Sound.play("sound");
-
-    }
-  </script> -->
-
-
-
-
-
-
-
-
-
-
   <script>
-  let videoArray = [];
   let progress = document.getElementById('progress');
-  let gallery = document.getElementById('gallery');
-
-  var queue = new createjs.LoadQueue(false);
-
+  let queue = new createjs.LoadQueue(false);
   // queue.on("progress", event => {
   //   let progress = Math.floor(event.progress *100);
   //   this.progress.style.width = progress+'%';
@@ -82,28 +55,26 @@
   //   progress.classList.add('fadeOut');
   // });
   queue.on("fileload", handeFileComplete);
-  queue.loadFile('videos/Trump_Speech.webm');
-  queue.loadFile('videos/LiftOff.webm');
-  queue.loadFile('videos/Trans_1.webm');
-  queue.loadFile('videos/Space_Border.webm');
-  queue.loadFile('videos/starman.webm');
-  queue.loadFile('videos/Border_Text.webm');
-  queue.loadFile('images/cockpits/Cockpit_Blue.png');
-  queue.loadFile('images/cockpits/Cockpit_Green.png');
-  queue.loadFile('images/cockpits/Cockpit_Purple.png');
-  queue.loadFile('images/cockpits/Cockpit_Red.png');
-  queue.loadFile('images/cockpits/Cockpit_White.png');
-
-
-
+  //background videos
+  queue.loadFile({accessKey:"trump", src:'videos/Trump_Speech.webm', type:createjs.Types.VIDEO}); //0
+  queue.loadFile({accessKey:"liftOff", src:'videos/LiftOff.webm', type:createjs.Types.VIDEO}); //1
+  queue.loadFile({src:'videos/starman.webm', type:createjs.Types.VIDEO}); //2
+  queue.loadFile({src:'videos/Trans_1.webm', type:createjs.Types.VIDEO}); //3
+  queue.loadFile({src:'videos/Border_Text.webm', type:createjs.Types.VIDEO}); //4
+  queue.loadFile({src:'videos/Space_Border.webm', type:createjs.Types.VIDEO}); //5
+  //hologram videos
+  // queue.loadFile('images/cockpits/Cockpit_Blue.png');
+  // queue.loadFile('images/cockpits/Cockpit_Green.png');
+  // queue.loadFile('images/cockpits/Cockpit_Purple.png');
+  // queue.loadFile('images/cockpits/Cockpit_Red.png');
+  // queue.loadFile('images/cockpits/Cockpit_White.png');
   function handeFileComplete(event){
-    console.log("new version!");
-    var item = event.item;
+    console.log("loaded file");
+    let item = event.result;
     videoArray.push(item);
   }
+
   </script>
 </body>
-
-
   <script src="js/script.js"></script>
 </html>
