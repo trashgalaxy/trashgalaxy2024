@@ -37,10 +37,11 @@ body{
 
 
 #enterButton{
+  visibility: hidden;
   position: relative;
   display: flex;
   color: black;
-  background-color: rgba(255, 0, 0, .75);
+  background-color: rgba(0, 255, 0, .75);
   left: 50%;
   top: 50vh;
   width: auto;

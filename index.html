@@ -8,11 +8,11 @@
   <script src = "https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
   <title>Trash Galaxy 2024</title>
 </head>
-<body id="mainContnt">
+<body>
 
   <div id="progress"></div>
 
-  <section id="splash">>
+  <section id="splash">
     <div id="enterButton">
       <a href="#" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
     </div>
@@ -50,26 +50,33 @@
   //   }
   // });
   //
-  // queue.on("complete", event => {
-  //   //gallery.classList.add('fadeIn');
-  //   progress.classList.add('fadeOut');
-  // });
+  queue.on("complete", event => {
+    //gallery.classList.add('fadeIn');
+    //progress.classList.add('fadeOut');
+    let startButton = document.getElementById("enterButton");
+    startButton.style.visibility = "visible";
+    console.log('Done Loading');
+  });
   queue.on("fileload", handeFileComplete);
   //background videos
-  queue.loadFile({accessKey:"trump", src:'videos/Trump_Speech.webm', type:createjs.Types.VIDEO}); //0
-  queue.loadFile({accessKey:"liftOff", src:'videos/LiftOff.webm', type:createjs.Types.VIDEO}); //1
+  queue.loadFile({src:'videos/Trump_Speech.webm', type:createjs.Types.VIDEO}); //0
+  queue.loadFile({src:'videos/liftOff.webm', type:createjs.Types.VIDEO}); //1
   queue.loadFile({src:'videos/starman.webm', type:createjs.Types.VIDEO}); //2
   queue.loadFile({src:'videos/Trans_1.webm', type:createjs.Types.VIDEO}); //3
-  queue.loadFile({src:'videos/Border_Text.webm', type:createjs.Types.VIDEO}); //4
-  queue.loadFile({src:'videos/Space_Border.webm', type:createjs.Types.VIDEO}); //5
+  queue.loadFile({src:'videos/border1.webm', type:createjs.Types.VIDEO}); //4
+  queue.loadFile({src:'videos/border2.webm', type:createjs.Types.VIDEO}); //5
+  queue.loadFile({src:'videos/border3.webm', type:createjs.Types.VIDEO}); //6
+  queue.loadFile({src:'videos/borderBg.webm', type:createjs.Types.VIDEO}); //7
   //hologram videos
   // queue.loadFile('images/cockpits/Cockpit_Blue.png');
   // queue.loadFile('images/cockpits/Cockpit_Green.png');
   // queue.loadFile('images/cockpits/Cockpit_Purple.png');
   // queue.loadFile('images/cockpits/Cockpit_Red.png');
   // queue.loadFile('images/cockpits/Cockpit_White.png');
+  let loaded = 0;
   function handeFileComplete(event){
-    console.log("loaded file");
+    loaded++;
+    console.log("loaded "+loaded+" file(s)");
     let item = event.result;
     videoArray.push(item);
   }

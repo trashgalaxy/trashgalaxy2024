@@ -239,8 +239,11 @@ function trans1(){
 function border(){
 
   //pull the appropriate videos for the sequence
-  let holoVid = videoArray[4];
-  let bgVid = videoArray[5];
+  let holoVid1 = videoArray[4];
+  let holoVid2 = videoArray[5];
+  let holoVid3 = videoArray[6];
+
+  let bgVid = videoArray[7];
 
   timelineIndex++
   console.log(timelineArray[timelineIndex]);
@@ -282,7 +285,7 @@ function border(){
     button[3].onclick = function(){
     console.log('button3');
     };
-    
+
     //~~~~~~~~set and play the appropriate background video~~~~~~~~
     bgVidCont.appendChild(bgVid);
     bgVid.play();
@@ -291,15 +294,28 @@ function border(){
     cockColor.src = cockpitColors["red"];
 
     ///~~~~~~~~/play the appropriate video on the holo-console//~~~~~~~~
-    holoVidCont.appendChild(holoVid);
-    holoVid.play();
+    holoVidCont.appendChild(holoVid1);
+    holoVid1.play();
 
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
-  // holoVid.onended = function() {
-  // //set the cockpit hologram orb color back to white
-  // cockColor.src = cockpitColors["white"];
-  // };
+  holoVid1.onended = function() {
+    //play next holo vid
+    holoVidCont.appendChild(holoVid2);
+    holoVid2.play();
+  };
+  //~~~~~~~~check when hologram video is done playing~~~~~~~~
+  holoVid2.onended = function() {
+    //play next holo vid
+    holoVidCont.appendChild(holoVid3);
+    holoVid3.play();
+  };
+  //~~~~~~~~check when hologram video is done playing~~~~~~~~
+  holoVid3.onended = function() {
+  //set the cockpit hologram orb color back to white
+  cockColor.src = cockpitColors["white"];
+  leavingEarth();
+  };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
   // bgVid.onended = function() {
