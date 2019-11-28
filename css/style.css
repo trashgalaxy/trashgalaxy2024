@@ -155,7 +155,7 @@ color: rgba(0,0,0,.75);
   margin: .8%;
   z-index: 10;
   width: 2.5%;
-  height: 6.25%;
+  height: 4.25%;
   left: 31%;
   background: rgba(0,255,0,.3);
 }
@@ -167,10 +167,13 @@ color: rgba(0,0,0,.75);
   animation: buttonShrink .2s;
 } */
 
-#button1{
+#button0{
   visibility: hidden;
 }
 
+#button1{
+  visibility: hidden;
+}
 #button2{
   visibility: hidden;
 }

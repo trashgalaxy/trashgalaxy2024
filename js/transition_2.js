@@ -72,7 +72,7 @@ function trans2(){
     };
     //set the cockpit hologram orb color back to white
     cockColor.src = cockpitColors["white"];
-    leavingEarth();
+    earthMuseum();
     };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~

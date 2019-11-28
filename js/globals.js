@@ -41,7 +41,8 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
                     "redHover": "rgba(255,0,0,.7)"};
 
   //holi-console buttons
-  let button = [document.getElementById('button1'),
+  let button = [document.getElementById('button0'),
+                document.getElementById('button1'),
                 document.getElementById('button2'),
                 document.getElementById('button3'),
                 document.getElementById('button4')];

@@ -31,9 +31,10 @@
   <div class="hologramWrapper">
     <div class="hologramContainer">
       <div id="hologramContent"></div>
-        <figure onclick="handleButtons('button1')" class="buttons" id="button1"><p>+</p></figure></a>
-        <figure onclick="handleButtons('button2')" class="buttons" id="button2"><p>-</p></figure></a>
-        <figure onclick="handleButtons('button3')" class="buttons" id="button3"><p>></p></figure></a>
+        <figure onclick="handleButtons('button1')" class="buttons" id="button0"><p>+</p></figure></a>
+        <figure onclick="handleButtons('button2')" class="buttons" id="button1"><p>-</p></figure></a>
+        <figure onclick="handleButtons('button3')" class="buttons" id="button2"><p>></p></figure></a>
+        <figure onclick="handleButtons('button3')" class="buttons" id="button3"><p><</p></figure></a>
         <figure onclick="handleButtons('button3')" class="buttons" id="button4"><p><</p></figure></a>
     </div>
   </div>
@@ -75,7 +76,14 @@
   //trans 2 the man who stole the world
   queue.loadFile({src:'videos/theManWho.webm', type:createjs.Types.VIDEO}); //8 holoVid
   queue.loadFile({src:'videos/transi_1.webm', type:createjs.Types.VIDEO}); //9 bgVid
-
+  //space museum
+  queue.loadFile({src:'videos/border1.webm', type:createjs.Types.VIDEO}); //10 holoVid: video menu
+  queue.loadFile({src:'videos/border2.webm', type:createjs.Types.VIDEO}); //11 holoVid: video menu
+  queue.loadFile({src:'videos/border3.webm', type:createjs.Types.VIDEO}); //12 holoVid: video menu
+  queue.loadFile({src:'videos/drive_in_loop.webm', type:createjs.Types.VIDEO}); //13 bgVid: loop
+  queue.loadFile({src:'videos/rocket_hist.webm', type:createjs.Types.VIDEO}); //14 bgVid: supercut
+  queue.loadFile({src:'videos/under_pressure.webm', type:createjs.Types.VIDEO}); //15 bgVid: underPr
+  queue.loadFile({src:'videos/human_history.webm', type:createjs.Types.VIDEO}); //16 bgVid:samsawie
 
   let loaded = 0;
   function handeFileComplete(event){
@@ -92,4 +100,5 @@
   <script src="js/transition_1.js"></script>
   <script src="js/karman_border.js"></script>
   <script src="js/transition_2.js"></script>
+  <script src="js\earth_museum.js"></script>
 </html>
