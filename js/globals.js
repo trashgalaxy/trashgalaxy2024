@@ -2,8 +2,7 @@
 //I hope it doens't get too cluttered
 
 //~~~~Current stage in the game~~~~
-let timelineArray = ["splash", "leavingEarth", "trans1", "border", "trans2", "museum", "trans3", "mars"];
-let timelineIndex = 0;
+let timeline;
 
 //~~~~~sound variables~~~~~~//
 let hoverSound = new Audio();
@@ -57,3 +56,15 @@ let buttonColors = {"blue": "rgba(0,0,255,.3)",
 
   //background video
   let bgVidCont = document.getElementById('backgroundVideo');
+
+  function clearBgCont(){
+    for(let i = 0; i < bgVidCont.childNodes.length; i++){
+     bgVidCont.removeChild(bgVidCont.childNodes[i]);
+    }
+  }
+
+  function clearHoloCont(){
+    for(let i = 0; i < holoVidCont.childNodes.length; i++){
+     holoVidCont.removeChild(holoVidCont.childNodes[i]);
+    }
+  }

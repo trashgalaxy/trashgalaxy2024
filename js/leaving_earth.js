@@ -4,26 +4,14 @@
 //
 //
 function leavingEarth(){
-
-  //pull the appropriate videos for the sequence
-  let holoVid = videoArray[0];
-  let bgVid = videoArray[1];
-  // window.mediaDevices.getUserMedia({
-  //   audio: true,
-  //   video: true
-  // })
-  timelineIndex++
-  console.log(timelineArray[timelineIndex]);
   //hide the splash screen
   let splashScreen = document.getElementById('splash').style.visibility = "hidden";
   let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
-
-  //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-  button[0].style.visibility = "hidden";
-  button[1].style.visibility = "hidden";
-  button[2].style.visibility = "hidden";
-  button[3].style.visibility = "visible";
-  button[4].style.visibility = "visible";
+  //set timeline
+  timeline = "leavingEarth";
+  //pull the appropriate videos for the sequence
+  let holoVid = videoArray[0];
+  let bgVid = videoArray[1];
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -58,11 +46,26 @@ function leavingEarth(){
     };
     //button3:
     button[4].onclick = function(){
-
+      if(timeline = "leaving earth")
+      transitionForward();
     };
-
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      //called by button
+    function transitionForward() {
+      //remove the video from the holo container
+      clearHoloCont();
+      //hide the hologram buttons
+      for (let i = 0; i < button.length; i++){
+        button[i].style.visibility = "hidden";
+      };
+      //remove video from bg container
+      clearBgCont();
+      //call next screen
+      trans1();
+    }
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVidCont.appendChild(bgVid);
+  bgVidCont.childNodes[0].currentTime = 0;
   bgVid.play();
 
   //set the cockpit hologram orb colors
@@ -71,25 +74,23 @@ function leavingEarth(){
   //~~~~~~~~set and play the appropriate video on the holo-console~~~~~~~~
   //
   holoVidCont.appendChild(holoVid);
+  holoVidCont.childNodes[0].currentTime = 0;
   holoVid.play();
-  //hologramVideoArray[0].remove();
+
+  //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
+  button[0].style.visibility = "hidden";
+  button[1].style.visibility = "hidden";
+  button[2].style.visibility = "hidden";
+  button[3].style.visibility = "hidden";
+  button[4].style.visibility = "visible";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
-    //remove the video from the container
-    holoVidCont.removeChild(holoVidCont.childNodes[0]);
-  //hide the cockpit buttons
-    for (let i = 0; i < button.length; i++){
-      button[i].style.visibility = "hidden";
-    };
-  //set the cockpit hologram orb color back to white
-  cockColor.src = cockpitColors["white"];
+
   };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
   bgVid.onended = function() {
-    //remove the video from the container
-    bgVidCont.removeChild(bgVidCont.childNodes[0]);
     //progress to next sequence
     trans1();
     };

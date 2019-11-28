@@ -5,8 +5,8 @@
 //
 function earthMuseum(){
   //hide the splash screen
-  // let splashScreen = document.getElementById('splash').style.visibility = "hidden";
-  // let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
+  let splashScreen = document.getElementById('splash').style.visibility = "hidden";
+  let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
 
   //pull the appropriate videos for the sequence
   let holoVid1 = videoArray[11];
@@ -18,15 +18,9 @@ function earthMuseum(){
   let bgVid2 = videoArray[15];
   let bgVid3 = videoArray[16];
 
-  timelineIndex++
-  console.log(timelineArray[timelineIndex]);
+  timeline = "earthMuseum";
 
-  //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-  button[0].style.visibility = "visible";
-  button[1].style.visibility = "visible";
-  button[2].style.visibility = "visible";
-  button[3].style.visibility = "visible";
-  button[4].style.visibility = "visible";
+
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -46,7 +40,7 @@ function earthMuseum(){
   button[0].onclick = function(){
   console.log('button0');
   //remove video from bg container
-  bgVidCont.removeChild(bgVidCont.childNodes[0]);
+  clearBgCont();
   bgVidCont.appendChild(bgVid1);
   bgVid1.play();
 
@@ -54,14 +48,14 @@ function earthMuseum(){
   //button0 Plays the second film at the drive in
   button[1].onclick = function(){
   console.log('button1');
-  bgVidCont.removeChild(bgVidCont.childNodes[0]);
+  clearBgCont();
   bgVidCont.appendChild(bgVid2);
   bgVid2.play();
     };
   //button2 button0 Plays the third film at the drive in
   button[2].onclick = function(){
   console.log('button2');
-  bgVidCont.removeChild(bgVidCont.childNodes[0]);
+  clearBgCont();
   bgVidCont.appendChild(bgVid3);
   bgVid3.play();
   };
@@ -69,78 +63,109 @@ function earthMuseum(){
   let menustate = "on";
   button[3].onclick = function(){
   console.log('button3');
-  if (menustate === "on"){
-    holoVidCont.removeChild(holoVidCont.childNodes[0]);
-    holoVidCont.appendChild(holoVid3);
-    holoVid3.play();
-    menustate = "off";
-  } else if (menustate === "off"){
-        cockColor.src = cockpitColors["green"];
-    holoVidCont.appendChild(holoVid2);
-    holoVid2.play();
-    menustate = "on";
-  }
+  // if (menustate === "on"){
+  //   clearHoloCont();
+  //   holoVidCont.appendChild(holoVid3);
+  //   holoVid3.play();
+  //   menustate = "off";
+  // } else if (menustate === "off"){
+  //   holoVidCont.appendChild(holoVid2);
+  //   holoVid2.play();
+  //   menustate = "on";
+  // }
+  transitionForward();
   };
   //button4 moves on to the next screen
   button[4].onclick = function(){
   console.log('button4');
-  transition();
+  transitionBackward();
+  };
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //called by button
+  function transitionForward() {
+    if (menustate === "on"){
+      //remove the video from the holo container
+      clearHoloCont();
+      //play closing holo vid
+      holoVidCont.appendChild(holoVid3);
+      holoVid3.play();
+    };
+    //hide the hologram buttons
+    for (let i = 0; i < button.length; i++){
+      button[i].style.visibility = "hidden";
+    };
+  //remove video from bg container
+  clearBgCont();
+  //call next screen
+  border();
+  }
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //called by button
+  function transitionBackward() {
+    if (menustate === "on"){
+      //remove the video from the holo container
+      clearHoloCont();
+      //play closing holo vid
+      holoVidCont.appendChild(holoVid3);
+      holoVid3.play();
+    };
+    //hide the hologram buttons
+    for (let i = 0; i < button.length; i++){
+      button[i].style.visibility = "hidden";
+    };
+  //remove video from bg container
+  clearBgCont();
+  //call next screen
+  trans2();
   };
 
     //~~~~~~~~set and play the appropriate background video~~~~~~~~
     bgVidCont.appendChild(bgVidLoop);
+    bgVidCont.childNodes[0].currentTime = 0;
     bgVidLoop.play();
 
     //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
     cockColor.src = cockpitColors["green"];
 
+
     ///~~~~~~~~/play the appropriate video on the holo-console//~~~~~~~~
     holoVidCont.appendChild(holoVid1);
+    holoVidCon.childNodes[0].currentTime = 0;
     holoVid1.play();
 
-      //~~~~~~~~When first vide ends~~~~~~~~
-      holoVid1.onended = function() {
-        //remove the video from the container
-        holoVidCont.removeChild(holoVidCont.childNodes[0]);
-        //play next holo vid
-        holoVidCont.appendChild(holoVid2);
-        holoVid2.loop = true;
-        holoVid2.play();
-        //show the hologram buttons
-        button[1].style.visibility = "visible";
-        button[3].style.visibility = "visible";
-      };
+    //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
+    button[0].style.visibility = "visible";
+    button[1].style.visibility = "visible";
+    button[2].style.visibility = "visible";
+    button[3].style.visibility = "visible";
+    button[4].style.visibility = "visible";
 
-      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        //called by button
-        let leaving = false;
-        function transition() {
-        leaving = true;
-        //hide the hologram buttons
-        button[1].style.visibility = "hidden";
-        button[3].style.visibility = "hidden";
-        //remove the video from the holo container
-        holoVidCont.removeChild(holoVidCont.childNodes[0]);
-        //remove video from bg container
-        bgVidCont.removeChild(bgVidCont.childNodes[0]);
-        //play next holo vid
-        holoVidCont.appendChild(holoVid3);
-        holoVid3.play();
-      };
-      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      holoVid3.onended = function() {
-      //remove the video from the holo container
-      holoVidCont.removeChild(holoVidCont.childNodes[0]);
-      //set the cockpit hologram orb color back to white
-      cockColor.src = cockpitColors["white"];
-        if (leaving === true){
-          border();
-        };
-      };
+
+    //~~~~~~~~When first vide ends~~~~~~~~
+    holoVid1.onended = function() {
+      //remove the video from the container
+      clearHoloCont();
+      //play next holo vid
+      holoVidCont.appendChild(holoVid2);
+      holoVid2.loop = true;
+      holoVid2.play();
+      //show the hologram buttons
+      button[1].style.visibility = "visible";
+      button[3].style.visibility = "visible";
+    };
+
+    //~~~~~~~~~~~~~~~when third video ends~~~~~~~~~~~~~~~~~
+    holoVid3.onended = function() {
+    //remove the video from the holo container
+    clearHoloCont();
+    //set the cockpit hologram orb color back to white
+    //cockColor.src = cockpitColors["white"];
+    };
 
   // ~~~~~~~~check when background video is done playing~~~~~~~~
   // bgVid.onended = function() {
-  //   //bgVidCont.removeChild(bgVidCont.childNodes[0]);
+  //   //clearBgCont();
   //   //border();
   //   };
 }
