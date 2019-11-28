@@ -131,7 +131,7 @@ function earthMuseum(){
 
     ///~~~~~~~~/play the appropriate video on the holo-console//~~~~~~~~
     holoVidCont.appendChild(holoVid1);
-    holoVidCon.childNodes[0].currentTime = 0;
+    holoVidCont.childNodes[0].currentTime = 0;
     holoVid1.play();
 
     //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
