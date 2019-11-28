@@ -20,6 +20,7 @@ function border(){
   button[1].style.visibility = "hidden";
   button[2].style.visibility = "hidden";
   button[3].style.visibility = "hidden";
+  button[4].style.visibility = "hidden";
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -42,17 +43,23 @@ function border(){
   //button1 TBD
   button[1].onclick = function(){
   console.log('button1');
-  transition();
+
     };
   //button2 OPEN JOURNEY TO PLANET AMAZON GAME
   button[2].onclick = function(){
   console.log('button2');
+;
   };
   //button3 TBD
   button[3].onclick = function(){
   console.log('button3');
   window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/Project3",
-          "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
+          "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500")
+  };
+  //button3 TBD
+  button[4].onclick = function(){
+  console.log('button3');
+  transition();
   };
 
     //~~~~~~~~set and play the appropriate background video~~~~~~~~
@@ -75,16 +82,17 @@ function border(){
         holoVid2.loop = true;
         holoVid2.play();
         //show the hologram buttons
-        button[1].style.visibility = "visible";
         button[3].style.visibility = "visible";
+        button[4].style.visibility = "visible";
       };
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //called by button
         function transition() {
         //hide the hologram buttons
-        button[1].style.visibility = "hidden";
-        button[3].style.visibility = "hidden";
+        for (let i = 0; i < button.length; i++){
+          button[i].style.visibility = "hidden";
+        };
         //remove the video from the container
         holoVidCont.removeChild(holoVidCont.childNodes[0]);
         //play next holo vid

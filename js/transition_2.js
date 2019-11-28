@@ -4,6 +4,9 @@
 //
 //
 function trans2(){
+  //hide the splash screen
+  // let splashScreen = document.getElementById('splash').style.visibility = "hidden";
+  // let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
 
   //pull the appropriate videos for the sequence
   let holoVid = videoArray[8];
@@ -65,22 +68,19 @@ function trans2(){
     //remove the video from the container
     holoVidCont.removeChild(holoVidCont.childNodes[0]);
     //remove bgVid
-    bgVidCont.removeChild(bgVidCont.childNodes[0]);
-    //hide the cockpit buttons
     for (let i = 0; i < button.length; i++){
       button[i].style.visibility = "hidden";
     };
     //set the cockpit hologram orb color back to white
     cockColor.src = cockpitColors["white"];
-    earthMuseum();
+
     };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
-  // bgVid.onended = function() {
-  //   //remove the video from the container
-  //   bgVidCont.removeChild(bgVidCont.childNodes[0]);
-  //   border();
-  //   //advance to next sequence
-  //   border();
-  //   };
+  bgVid.onended = function() {
+    //remove the video from the container
+    bgVidCont.removeChild(bgVidCont.childNodes[0]);
+    //advance to next sequence
+    earthMuseum();
+    };
 }

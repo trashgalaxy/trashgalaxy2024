@@ -19,10 +19,11 @@ function leavingEarth(){
   let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
 
   //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-  button[0].style.visibility = "visible";
-  button[1].style.visibility = "visible";
+  button[0].style.visibility = "hidden";
+  button[1].style.visibility = "hidden";
   button[2].style.visibility = "hidden";
-  button[3].style.visibility = "hidden";
+  button[3].style.visibility = "visible";
+  button[4].style.visibility = "visible";
 
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
@@ -38,23 +39,27 @@ function leavingEarth(){
   };
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button0: RAISE VIDEO VOLUME
+    //button0:
     button[0].onclick = function(){
-    holoVid.volume = holoVid.volume + .2;
+
   };
-    //button1: LOWER VIDEO VOLUME
+    //button1:
     button[1].onclick = function(){
-        holoVid.volume = holoVid.volume - .2;
+
     };
-    //button2: skip to next sequence
+    //button2:
     button[2].onclick = function(){
-        trans1();
+
     };
 
-    //button3: HIDDEN
-    // button[3].onclick = function(){
-    //
-    // };
+    //button3:
+    button[3].onclick = function(){
+
+    };
+    //button3:
+    button[4].onclick = function(){
+
+    };
 
   //~~~~~~~~set and play the appropriate background video~~~~~~~~
   bgVidCont.appendChild(bgVid);
