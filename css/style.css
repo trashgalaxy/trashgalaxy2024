@@ -1,3 +1,5 @@
+
+
 *{
   margin: 0;
   padding: 0;
@@ -10,6 +12,20 @@ body{
   overflow: hidden;
   background: rgb(29,29,29);
   transition: backgroundColor 2s ease;
+}
+
+#mobile{
+  visibility: hidden;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,1);
+  color: white;
+  font-size: 10vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
 }
 
 /* #progress{
@@ -56,10 +72,14 @@ body{
   visibility: hidden;
   position: fixed;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
   color: black;
   background-color: rgba(255, 255, 255, 1);
   height: 5vh;
   width: auto;
+  font-size: 5vh;
   /* border: 1px solid red; */
   text-decoration: none;
 }
@@ -140,6 +160,8 @@ color: rgba(0,0,0,.75);
     width: 100%;
     height: 100%;
     display: flex;
+    z-index: 11;
+    pointer-events: none;
   }
 
   #hologramContent video {
@@ -147,18 +169,38 @@ color: rgba(0,0,0,.75);
   left: 0;
   width:  100%;
   height: 100%;
-  /* visibility: hidden; */
 }
 
+.buttonWrapper{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 35%;
+}
 .buttons{
   position: relative;
-  margin: .8%;
+  overflow: hidden;
+  margin: .5vh;
+  padding: .5vh;
+  min-width: 5vh;
+  width: max-content;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-height: 4vh;
   z-index: 10;
-  width: 2.5%;
-  height: 4.25%;
-  left: 31%;
   background: rgba(0,255,0,.3);
+  color: white;
+  font-size: 3vh;
+  justify-content: left;
+  align-items: center;
 }
+
+/* .buttons:hover{
+  min-width: 5vh;
+  width: max-content;
+} */
+
+
 /* .buttons:hover{
   background: rgba(0,255,0,.7);
   hoverSound.play();
@@ -194,10 +236,15 @@ color: rgba(0,0,0,.75);
     opacity: 0;
     visibility: hidden;
   }
-
 }
 
 @keyframes roatation {
   0% {transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
+}
+
+@media only screen and (max-width: 600px) {
+  #mobile{
+    visibility: visible;
+  }
 }

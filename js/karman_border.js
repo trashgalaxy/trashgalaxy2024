@@ -29,35 +29,47 @@ function border(){
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
     //button0 TBD
+  button[0].innerHTML = "Give in to lord Bezos and continue on...";
   button[0].onclick = function(){
   console.log('button0');
     if(timeline === "border"){
       transitionForward();
     };
+  };
+
   //button1 TBD
+  button[1].innerHTML = "JumpBack";
   button[1].onclick = function(){
+    if(timeline === "border"){
+      transitionBackward();
     };
   console.log('button1');
 
-    };
+  };
+
   //button2 OPEN JOURNEY TO PLANET AMAZON GAME
+  button[2].innerHTML = "DAYDREAM";
   button[2].onclick = function(){
     if(timeline === "border"){
       window.open("https://thearlman.github.io/Asa_Perlman-Cart_253_Fall_2019/Projects/Project3",
             "_blank", "replace=true, scrollbars=no, top=100, left=100, width=900, height=500");
-  console.log('button2');
-  };
-  //button3 TBD
-  button[3].onclick = function(){
-    console.log('button3');
-
+      console.log('button2');
     };
   };
+
   //button3 TBD
+  button[3].innerHTML = "";
+  button[3].onclick = function(){
+    console.log('button3');
+    };
+
+  //button3 TBD
+  button[4].innerHTML = ">>";
   button[4].onclick = function(){
   console.log('button3');
     if(timeline === "border"){
-      transitionBackward();
+      activeButtons = [2, 1, 0];
+      menuToggle(activeButtons, undefined, undefined, undefined, undefined);
     };
   };
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,6 +117,7 @@ function border(){
     };
   };
     //~~~~~~~~set and play the appropriate background video~~~~~~~~
+    clearBgCont();
     bgVidCont.appendChild(bgVid);
     bgVidCont.childNodes[0].currentTime = 0;
     bgVid.play();
@@ -118,11 +131,12 @@ function border(){
     holoVid1.play();
 
     //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-    button[0].style.visibility = "visible";
+    button[0].style.visibility = "hidden";
     button[1].style.visibility = "hidden";
     button[2].style.visibility = "hidden";
     button[3].style.visibility = "hidden";
     button[4].style.visibility = "visible";
+    menuState = "closed";
 
       //~~~~~~~~When first vide ends~~~~~~~~
       holoVid1.onended = function() {
@@ -133,10 +147,6 @@ function border(){
         holoVidCont.childNodes[0].currentTime = 0;
         holoVid2.loop = true;
         holoVid2.play();
-        //show the hologram buttons
-        button[0].style.visibility = "visible";
-        button[2].style.visibility = "visible";
-        button[4].style.visibility = "visible";
       };
 
 

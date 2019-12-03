@@ -28,25 +28,35 @@ function trans1(){
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
     //button0: RAISE VOLUME
+  button[0].innerHTML = "";
   button[0].onclick = function(){
   };
     //button1: LOWER VOLUME
+  button[1].innerHTML = "";
   button[1].onclick = function(){
       //holoVid.volume = holoVid.volume - .2;
     };
     //button2 SKIP TO NEXT SEQUENCE
+  button[2].innerHTML = "JumpAhead";
   button[2].onclick = function(){
-
-    };
-    //button3 RETURN TO PREVIOUS SEQUENCE
-  button[3].onclick = function(){
     if (timeline === "trans1"){
       transitionForward();
+      }
+    };
+    //button3 SKIP TO PREVIOUS
+  button[3].innerHTML = "JumpBack";
+  button[3].onclick = function(){
+    if (timeline === "trans1"){
+      transitionBackward();
       };
     };
+    //button 4 toggle menu
+    button[4].innerHTML = ">>";
     button[4].onclick = function(){
+      console.log(menuState);
       if (timeline === "trans1"){
-        transitionBackward();
+        activeButtons = [3,2];
+        menuToggle(activeButtons, undefined, undefined, undefined, undefined);
         };
       };
       //called by button
@@ -95,8 +105,9 @@ function trans1(){
   button[0].style.visibility = "hidden";
   button[1].style.visibility = "hidden";
   button[2].style.visibility = "hidden";
-  button[3].style.visibility = "visible";
+  button[3].style.visibility = "hidden";
   button[4].style.visibility = "visible";
+  menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {

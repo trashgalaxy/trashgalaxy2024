@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
-  <script src = "https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
-  <!-- <script src ="js/libraries/preloadjs.min.js"></script> -->
+  <!-- <script src = "https://code.createjs.com/1.0.0/preloadjs.min.js"></script> -->
+  <script src ="js/libraries/preloadjs.min.js"></script>
   <title>Trash Galaxy 2024</title>
 </head>
 <body>
 
   <div id="progress"></div>
-
+  <section id="mobile">
+    <p>Sorry Loser <br> This Site Requires .webm</p>
+  </section>
   <section id="splash">
     <div id="loadingAnim"></div>
     <div id="enterButton">
@@ -32,11 +34,13 @@
   <div class="hologramWrapper">
     <div class="hologramContainer">
       <div id="hologramContent"></div>
-        <figure onclick="handleButtons('button1')" class="buttons" id="button0"><p></p></figure></a>
-        <figure onclick="handleButtons('button2')" class="buttons" id="button1"><p></p></figure></a>
-        <figure onclick="handleButtons('button3')" class="buttons" id="button2"><p></p></figure></a>
-        <figure onclick="handleButtons('button3')" class="buttons" id="button3"><p></p></figure></a>
-        <figure onclick="handleButtons('button3')" class="buttons" id="button4"><p></p></figure></a>
+      <div class="buttonWrapper">
+        <div onclick="handleButtons('button1')" class="buttons" id="button0"></div>
+        <div onclick="handleButtons('button2')" class="buttons" id="button1"></div>
+        <div onclick="handleButtons('button3')" class="buttons" id="button2"></div>
+        <div onclick="handleButtons('button3')" class="buttons" id="button3"></div>
+        <div onclick="handleButtons('button3')" class="buttons" id="button4"></div>
+      </div>
     </div>
   </div>
 
@@ -78,13 +82,20 @@
   queue.loadFile({src:'videos/theManWho.webm', type:createjs.Types.VIDEO}); //8 holoVid
   queue.loadFile({src:'videos/transi_2.webm', type:createjs.Types.VIDEO}); //9 bgVid
   //space museum
-  queue.loadFile({src:'videos/border1.webm', type:createjs.Types.VIDEO}); //10 holoVid: video menu
-  queue.loadFile({src:'videos/border2.webm', type:createjs.Types.VIDEO}); //11 holoVid: video menu
-  queue.loadFile({src:'videos/border3.webm', type:createjs.Types.VIDEO}); //12 holoVid: video menu
+  queue.loadFile({src:'videos/museum1.webm', type:createjs.Types.VIDEO}); //10 holoVid: video menu
+  queue.loadFile({src:'videos/museum2.webm', type:createjs.Types.VIDEO}); //11 holoVid: video menu
+  queue.loadFile({src:'videos/museum3.webm', type:createjs.Types.VIDEO}); //12 holoVid: video menu
   queue.loadFile({src:'videos/drive_in_loop.webm', type:createjs.Types.VIDEO}); //13 bgVid: loop
   queue.loadFile({src:'videos/rocket_hist.webm', type:createjs.Types.VIDEO}); //14 bgVid: supercut
   queue.loadFile({src:'videos/under_pressure.webm', type:createjs.Types.VIDEO}); //15 bgVid: underPr
   queue.loadFile({src:'videos/human_history.webm', type:createjs.Types.VIDEO}); //16 bgVid:samsawie
+
+
+  queue.loadFile({src:'videos/gatorSons.webm', type:createjs.Types.VIDEO}); //17 holovid: commercial/ jetsons
+  queue.loadFile({src:'videos/blue_open.webm', type:createjs.Types.VIDEO}); //18 holovid:credits open
+  queue.loadFile({src:'videos/blue_loop.webm', type:createjs.Types.VIDEO}); //19:holovid:credits close
+  queue.loadFile({src:'videos/blue_close.webm', type:createjs.Types.VIDEO}); //20:holovid:credits close
+  queue.loadFile({src:'videos/moonage_daydream.webm', type:createjs.Types.VIDEO}); //21 bgVid: moonage
 
   let loaded = 0;
   function handeFileComplete(event){
@@ -102,4 +113,5 @@
   <script src="js/karman_border.js"></script>
   <script src="js/transition_2.js"></script>
   <script src="js\earth_museum.js"></script>
+  <script src="js\final_sequence.js"></script>
 </html>

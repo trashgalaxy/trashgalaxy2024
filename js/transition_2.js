@@ -27,26 +27,33 @@ function trans2(){
   };
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button0: RAISE VOLUME
+    //button0:
+  button[0].innerHTML = "";
   button[0].onclick = function(){
-    holoVid.volume = holoVid.volume + .2;
   };
-    //button1: LOWER VOLUME
+    //button1:
+  button[1].innerHTML = "";
   button[1].onclick = function(){
-      holoVid.volume = holoVid.volume - .2;
     };
-    //button2 SKIP TO NEXT SEQUENCE
+    //button2
+  button[2].innerHTML = "JumpAhead";
   button[2].onclick = function(){
-
-    };
-  button[3].onclick = function(){
     if (timeline === "trans2"){
       transitionForward();
       };
+
     };
-  button[4].onclick = function(){
+  button[3].innerHTML = "JumpBack";
+  button[3].onclick = function(){
     if (timeline === "trans2"){
       transitionBackward();
+      };
+    };
+  button[4].innerHTML = ">>";
+  button[4].onclick = function(){
+    if (timeline === "trans2"){
+      activeButtons = [3, 2];
+      menuToggle(activeButtons, undefined, undefined, undefined, undefined);
       };
     };
 
@@ -96,8 +103,9 @@ function trans2(){
     button[0].style.visibility = "hidden";
     button[1].style.visibility = "hidden";
     button[2].style.visibility = "hidden";
-    button[3].style.visibility = "visible";
+    button[3].style.visibility = "hidden";
     button[4].style.visibility = "visible";
+    menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {

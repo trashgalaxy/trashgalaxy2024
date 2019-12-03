@@ -26,29 +26,38 @@ function leavingEarth(){
     };
   };
 
-  //~~~~~~~~set functionality of buttons~~~~~~~~
+  //~~~~~~~~set content and functionality  of buttons~~~~~~~~
     //button0:
+    button[0].innerHTML = "";
     button[0].onclick = function(){
 
-  };
+    };
     //button1:
+    button[1].innerHTML = "";
     button[1].onclick = function(){
 
     };
     //button2:
+    button[2].innerHTML = "";
     button[2].onclick = function(){
 
     };
 
     //button3:
+    button[3].innerHTML = ">> jump forward";
     button[3].onclick = function(){
-
-    };
-    //button3:
-    button[4].onclick = function(){
-      if(timeline = "leaving earth")
       transitionForward();
     };
+
+    //button4:
+    button[4].innerHTML = ">>";
+    button[4].onclick = function(){
+      if (timeline = "leaving earth"){
+        activeButtons = [3];
+        menuToggle(activeButtons, undefined, undefined, undefined, undefined);
+      };
+    };
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //called by button
     function transitionForward() {
@@ -83,6 +92,7 @@ function leavingEarth(){
   button[2].style.visibility = "hidden";
   button[3].style.visibility = "hidden";
   button[4].style.visibility = "visible";
+  menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
