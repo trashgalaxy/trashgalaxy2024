@@ -17,13 +17,13 @@ function border(){
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
   for (let i = 0; i < b.length; i++){
-    b[i].style.backgroundColor = buttonColors['red'];
+    b[i].style.color = buttonColors['red'];
     b[i].onmouseover = function(){
-      b[i].style.backgroundColor = buttonColors['redHover'];
+      b[i].style.color = buttonColors['redHover'];
       hoverSound.play();
     };
     b[i].onmouseout = function(){
-      b[i].style.backgroundColor = buttonColors['red'];
+      b[i].style.color = buttonColors['red'];
     };
   };
 
@@ -33,6 +33,7 @@ function border(){
   button[0].onclick = function(){
   console.log('button0');
     if(timeline === "border"){
+      hideButtons();
       transitionForward();
     };
   };
@@ -81,19 +82,21 @@ function border(){
     holoVidCont.appendChild(holoVid3);
     holoVidCont.childNodes[0].currentTime = 0;
     holoVid3.play();
-    holoVid3.onended = function() {
-      //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-      };
-      //remove video from bg container
-      clearBgCont();
-      //remove video from cont container
-      clearHoloCont();
-      //call next screen
-      trans2();
-    };
   }
+  holoVid3.onended = function() {
+    //hide the hologram buttons
+    hideButtons();
+    //remove video from bg container
+    clearBgCont();
+    //remove video from cont container
+    clearHoloCont();
+    //call next screen
+    trans2();
+  };
+
+
+
+
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //called by button
   function transitionBackward() {
@@ -105,9 +108,7 @@ function border(){
     holoVid3.play();
     holoVid3.onended = function() {
       //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-      };
+      hideButtons();
       //remove video from bg container
       clearBgCont();
       //remove video from cont container
@@ -120,6 +121,7 @@ function border(){
     clearBgCont();
     bgVidCont.appendChild(bgVid);
     bgVidCont.childNodes[0].currentTime = 0;
+    bgVid.loop = true;
     bgVid.play();
 
     //~~~~~~~~set the cockpit hologram orb colors~~~~~~~~
@@ -131,11 +133,8 @@ function border(){
     holoVid1.play();
 
     //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-    button[0].style.visibility = "hidden";
-    button[1].style.visibility = "hidden";
-    button[2].style.visibility = "hidden";
-    button[3].style.visibility = "hidden";
-    button[4].style.visibility = "visible";
+    button[4].style.opacity = "1";
+    button[4].style.pointerEvents = "auto";
     menuState = "closed";
 
       //~~~~~~~~When first vide ends~~~~~~~~

@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 *{
   margin: 0;
@@ -12,6 +13,8 @@ body{
   overflow: hidden;
   background: rgb(29,29,29);
   transition: backgroundColor 2s ease;
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'VT323', monospace;
 }
 
 #mobile{
@@ -160,7 +163,7 @@ color: rgba(0,0,0,.75);
     width: 100%;
     height: 100%;
     display: flex;
-    z-index: 11;
+    z-index: 10;
     pointer-events: none;
   }
 
@@ -181,16 +184,19 @@ color: rgba(0,0,0,.75);
   position: relative;
   overflow: hidden;
   margin: .5vh;
-  padding: .5vh;
+  padding: 1vh;
   min-width: 5vh;
   width: max-content;
   white-space: nowrap;
   text-overflow: ellipsis;
   min-height: 4vh;
-  z-index: 10;
-  background: rgba(0,255,0,.3);
-  color: white;
-  font-size: 3vh;
+  z-index: 11;
+  /* background: rgba(0,255,0,.3); */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, .4), 0 0 1em rgba(255, 255, 255, .3), 0 0 0.2em rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, .75);
+  font-size: 4vh;
+  opacity: 1;
+  transition: opacity .3s linear;
   justify-content: left;
   align-items: center;
 }
@@ -210,20 +216,25 @@ color: rgba(0,0,0,.75);
 } */
 
 #button0{
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 #button1{
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 #button2{
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 #button3{
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 #button4{
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 @keyframes buttonShrink {

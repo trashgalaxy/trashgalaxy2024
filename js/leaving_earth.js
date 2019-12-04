@@ -16,13 +16,13 @@ function leavingEarth(){
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
   for (let i = 0; i < b.length; i++){
-    b[i].style.backgroundColor = buttonColors['blue'];
+    b[i].style.color = buttonColors['blue'];
     b[i].onmouseover = function(){
-      b[i].style.backgroundColor = buttonColors['blueHover'];
+      b[i].style.color = buttonColors['blueHover'];
       hoverSound.play();
     };
     b[i].onmouseout = function(){
-      b[i].style.backgroundColor = buttonColors['blue'];
+      b[i].style.color = buttonColors['blue'];
     };
   };
 
@@ -46,7 +46,12 @@ function leavingEarth(){
     //button3:
     button[3].innerHTML = ">> jump forward";
     button[3].onclick = function(){
-      transitionForward();
+      //transitionForward();
+      hideButtons();
+      holoVidCont.childNodes[0].currentTime = 43;
+      bgVidCont.childNodes[0].currentTime = 43;
+
+
     };
 
     //button4:
@@ -64,9 +69,7 @@ function leavingEarth(){
       //remove the video from the holo container
       clearHoloCont();
       //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-      };
+      hideButtons();
       //remove video from bg container
       clearBgCont();
       //call next screen
@@ -87,20 +90,22 @@ function leavingEarth(){
   holoVid.play();
 
   //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-  button[0].style.visibility = "hidden";
-  button[1].style.visibility = "hidden";
-  button[2].style.visibility = "hidden";
-  button[3].style.visibility = "hidden";
-  button[4].style.visibility = "visible";
+  button[4].style.opacity = "1";
+  button[4].style.pointerEvents = "auto";
   menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
-
+    clearHoloCont();
+    //hide the hologram buttons
+    hideButtons();
+    //set the cockpit hologram orb colors
+    cockColor.src = cockpitColors["white"];
   };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
   bgVid.onended = function() {
+    clearBgCont();
     //progress to next sequence
     trans1();
     };

@@ -16,13 +16,13 @@ function trans1(){
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
   for (let i = 0; i < b.length; i++){
-    b[i].style.backgroundColor = buttonColors['purple'];
+    b[i].style.color = buttonColors['purple'];
     b[i].onmouseover = function(){
-      b[i].style.backgroundColor = buttonColors['purpleHover'];
+      b[i].style.color = buttonColors['purpleHover'];
       hoverSound.play();
     };
     b[i].onmouseout = function(){
-      b[i].style.backgroundColor = buttonColors['purple'];
+      b[i].style.color = buttonColors['purple'];
     };
   };
 
@@ -40,7 +40,10 @@ function trans1(){
   button[2].innerHTML = "JumpAhead";
   button[2].onclick = function(){
     if (timeline === "trans1"){
-      transitionForward();
+      // transitionForward();
+      hideButtons();
+      holoVidCont.childNodes[0].currentTime = 52;
+      bgVidCont.childNodes[0].currentTime = 52;
       }
     };
     //button3 SKIP TO PREVIOUS
@@ -53,7 +56,6 @@ function trans1(){
     //button 4 toggle menu
     button[4].innerHTML = ">>";
     button[4].onclick = function(){
-      console.log(menuState);
       if (timeline === "trans1"){
         activeButtons = [3,2];
         menuToggle(activeButtons, undefined, undefined, undefined, undefined);
@@ -64,9 +66,7 @@ function trans1(){
       //remove the video from the holo container
       clearHoloCont();
       //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-        };
+      hideButtons();
       //remove video from bg container
       clearBgCont();
       //call next screen
@@ -78,9 +78,7 @@ function trans1(){
       //remove the video from the holo container
       clearHoloCont();
       //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-        };
+      hideButtons();
       //remove video from bg container
       clearBgCont();
       //call next screen
@@ -102,19 +100,15 @@ function trans1(){
   holoVid.play();
 
   //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-  button[0].style.visibility = "hidden";
-  button[1].style.visibility = "hidden";
-  button[2].style.visibility = "hidden";
-  button[3].style.visibility = "hidden";
-  button[4].style.visibility = "visible";
+  button[4].style.opacity = "1";
+  button[4].style.pointerEvents = "auto";
   menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
+    clearHoloCont();
     //hide the cockpit buttons
-    for (let i = 0; i < button.length; i++){
-      button[i].style.visibility = "hidden";
-    };
+    hideButtons();
     //set the cockpit hologram orb color back to white
     cockColor.src = cockpitColors["white"];
     };

@@ -16,13 +16,13 @@ function trans2(){
   //~~~~~~~~set the hologram buttons colors~~~~~~~~
   let b = document.getElementsByClassName('buttons');
   for (let i = 0; i < b.length; i++){
-    b[i].style.backgroundColor = buttonColors['green'];
+    b[i].style.color = buttonColors['green'];
     b[i].onmouseover = function(){
-      b[i].style.backgroundColor = buttonColors['greenHover'];
+      b[i].style.color = buttonColors['greenHover'];
       hoverSound.play();
     };
     b[i].onmouseout = function(){
-      b[i].style.backgroundColor = buttonColors['green'];
+      b[i].style.color = buttonColors['green'];
     };
   };
 
@@ -39,8 +39,11 @@ function trans2(){
   button[2].innerHTML = "JumpAhead";
   button[2].onclick = function(){
     if (timeline === "trans2"){
-      transitionForward();
-      };
+    // transitionForward();
+    hideButtons();
+    holoVidCont.childNodes[0].currentTime = 66;
+    bgVidCont.childNodes[0].currentTime = 66;
+    };
 
     };
   button[3].innerHTML = "JumpBack";
@@ -59,15 +62,14 @@ function trans2(){
 
     //called by button
     function transitionForward() {
-      //remove the video from the holo container
-      holoVidCont.removeChild(holoVidCont.childNodes[0]);
-      //hide the hologram buttons
-      for (let i = 0; i < button.length; i++){
-        button[i].style.visibility = "hidden";
-        };
-      //remove video from bg container
+      //clear background container
       clearBgCont();
-      //call next screen
+      //hide the cockpit buttons
+      hideButtons();
+      //clear hologram container
+      clearHoloCont();
+      //set the cockpit hologram orb color back to white
+      cockColor.src = cockpitColors["white"];
       earthMuseum();
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,34 +102,17 @@ function trans2(){
     holoVid.play();
 
     //~~~~~~~~Set the hologram button(s) visibillity~~~~~~~~
-    button[0].style.visibility = "hidden";
-    button[1].style.visibility = "hidden";
-    button[2].style.visibility = "hidden";
-    button[3].style.visibility = "hidden";
-    button[4].style.visibility = "visible";
+    button[4].style.opacity = "1";
+    button[4].style.pointerEvents = "auto";
     menuState = "closed";
 
   //~~~~~~~~check when hologram video is done playing~~~~~~~~
   holoVid.onended = function() {
-    //remove the video from the container
-    holoVidCont.removeChild(holoVidCont.childNodes[0]);
-    //remove bgVid
-    clearBgCont();
-    //hide the cockpit buttons
-    for (let i = 0; i < button.length; i++){
-      button[i].style.visibility = "hidden";
-    };
-    //set the cockpit hologram orb color back to white
-    cockColor.src = cockpitColors["white"];
-    earthMuseum();
+    transitionForward();
     };
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
   // bgVid.onended = function() {
-  //   //remove the video from the container
-  //   clearBgCont();
-  //   border();
-  //   //advance to next sequence
-  //   border();
+  //
   //   };
 }
