@@ -7,6 +7,10 @@ function leavingEarth(){
   //hide the splash screen
   let splashScreen = document.getElementById('splash').style.visibility = "hidden";
   let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
+  let loadingAnimation1 = document.getElementById('loadingAnim').style.visibility = "hidden";
+  let loadingAnimation2 = document.getElementById('loadingAnim2').style.visibility = "hidden";
+  let loadingAnimation3 = document.getElementById('loadingAnim3').style.visibility = "hidden";
+
   //set timeline
   timeline = "leavingEarth";
   //pull the appropriate videos for the sequence

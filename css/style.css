@@ -31,15 +31,6 @@ body{
   z-index: 10000;
 }
 
-/* #progress{
-  height: 1px;
-  background: rgb(126, 126, 126);
-  position: absolute;
-  top: 45%;
-  opacity: 1;
-  z-index: 100;
-  transition: width .1s ease;
-} */
 
 .fadeOut {
   opacity: 0 !important;
@@ -54,21 +45,45 @@ body{
   align-items: center;
   width: 100%;
   height: 100vh;
-  z-index: 98;
+  z-index: 97;
   background-color: rgba(0,0,0,1);
 
+}
+
+#loadingAnim3{
+  visibility: visible;
+  position: fixed;
+  width: 80vh;
+  height: 80vh;
+  background: url(../images/logo.png) no-repeat center center;
+  background-size: contain;
+  z-index: 98;
+  animation: roatation 10s infinite linear;
+}
+
+#loadingAnim2{
+  visibility: visible;
+  position: fixed;
+  opacity: .75;
+  filter: blur(10px);
+  left:0;
+  width: 30vh;
+  height: 7vh;
+  background: limegreen;
+  z-index: 99;
 }
 
 #loadingAnim{
   visibility: visible;
   position: fixed;
-  width: 200px;
-  height: 200px;
+  width: 30vh;
+  height: 30vh;
   background: url(../images/Starship_Cropped.png) no-repeat center center;
   background-size: contain;
   z-index: 100;
-  animation: roatation 4s infinite linear;
+  /* animation: roatation 4s infinite linear; */
 }
+
 
 
 #enterButton{
@@ -78,23 +93,25 @@ body{
   justify-content: center;
   align-items: center;
   padding: 2%;
-  color: black;
-  background-color: rgba(255, 255, 255, 1);
+  /* background-color: rgba(255, 255, 255, .75); */
   height: 5vh;
   width: auto;
   font-size: 5vh;
-  /* border: 1px solid red; */
+  border: .2vh solid red;
+  border-radius: 2vh;
   text-decoration: none;
+  animation: pulse 1s infinite ;
+  animation-direction: alternate;
+  z-index: 101;
 }
 
-#enterButton:hover{
-  background-color: rgba(255, 0, 0, 1);
+#enterButton a:visited{
+color: rgba(0,0,0,1);
 }
 
-#enterButton:visited{
-color: rgba(0,0,0,.75);
+#enterButton a:hover{
+  color: rgba(0,255,255,1);
 }
-
 
 #background{
   position: fixed;
@@ -123,8 +140,6 @@ color: rgba(0,0,0,.75);
 #cockpit{
   width: 100%;
   height: 100vh;
-  /* background: url('../assets/images/spaceBorder.jpg')  no-repeat center top;
-  background-size: cover; */
 }
 
 #cockpitStyle{
@@ -240,13 +255,14 @@ color: rgba(0,0,0,.75);
 @keyframes buttonShrink {
   from {width: 2.5%; height: 6.25%;}
   to {width: 0%; height: 0%;}
-
 }
-@@keyframes fadeOut {
-  100%{
-    opacity: 0;
-    visibility: hidden;
-  }
+
+@keyframes pulse {
+  from{font-size: 5vh;}
+  to{font-size: 10vh;}
+  from{font-size: 10vh;}
+  to{font-size: 5vh;}
+
 }
 
 @keyframes roatation {
