@@ -14,6 +14,13 @@
   <section id="mobile">
     <p>Sorry Loser <br> This Site Requires .webm</p>
   </section>
+  <section id="earthNotFound"></section>
+
+  <button id="homeButton" type="button" onclick=" console.log('hello');
+    let notFound = document.getElementById('earthNotFound');
+    notFound.style.visibility = 'visible';
+    homeButton.style.visibility = 'hidden';" name="button">Go Home?</button>
+
   <section id="splash">
     <div id="loadingAnim"></div>
     <div id="loadingAnim2"></div>
@@ -23,7 +30,6 @@
       <a href="#" onclick="leavingEarth()" style="text-decoration: none;">The Adventure Begins</a>
     </div>
   </section>
-
 
   <section id="background">
     <div id="backgroundVideo"></div>
@@ -84,34 +90,34 @@
 
   queue.on("fileload", handeFileComplete);
   //leavingEarth
-  queue.loadFile({src:'videos/trumpSpeech.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //0 holoVid
-  queue.loadFile({src:'videos/lift_off.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //1  bgVid
+  queue.loadFile({src:'videos/trumpSpeech.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //0 holoVid
+  queue.loadFile({src:'videos/lift_off.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //1  bgVid
   //transition 1 star man
-  queue.loadFile({src:'videos/bowieStarMan.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //2  holoVid
-  queue.loadFile({src:'videos/transi_one.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //3  bgVid
+  queue.loadFile({src:'videos/bowieStarMan.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //2  holoVid
+  queue.loadFile({src:'videos/transi_one.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //3  bgVid
   //space border
-  queue.loadFile({src:'videos/border1.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //4  holoVid
-  queue.loadFile({src:'videos/border2.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //5  holoVid
-  queue.loadFile({src:'videos/border3.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //6  holoVid
-  queue.loadFile({src:'videos/border_bg.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //7 bgVid
+  queue.loadFile({src:'videos/border1.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //4  holoVid
+  queue.loadFile({src:'videos/border2.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //5  holoVid
+  queue.loadFile({src:'videos/border3.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //6  holoVid
+  queue.loadFile({src:'videos/border_bg.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //7 bgVid
   //trans 2 the man who stole the world
-  queue.loadFile({src:'videos/theManWho.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //8 holoVid
-  queue.loadFile({src:'videos/transi_two.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //9 bgVid
+  queue.loadFile({src:'videos/theManWho.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //8 holoVid
+  queue.loadFile({src:'videos/transi_two.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //9 bgVid
   //space museum
-  queue.loadFile({src:'videos/museum1.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //10 holoVid: video menu
-  queue.loadFile({src:'videos/museum2.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //11 holoVid: video menu
-  queue.loadFile({src:'videos/museum3.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //12 holoVid: video menu
-  queue.loadFile({src:'videos/drive_in_loop.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //13 bgVid: loop
-  queue.loadFile({src:'videos/rocket_hist.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //14 bgVid: supercut
-  queue.loadFile({src:'videos/under_pressure.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //15 bgVid: underPr
-  queue.loadFile({src:'videos/human_history.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //16 bgVid:samsawie
+  queue.loadFile({src:'videos/museum1.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //10 holoVid: video menu
+  queue.loadFile({src:'videos/museum2.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //11 holoVid: video menu
+  queue.loadFile({src:'videos/museum3.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //12 holoVid: video menu
+  queue.loadFile({src:'videos/drive_in_loop.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //13 bgVid: loop
+  queue.loadFile({src:'videos/rocket_hist.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //14 bgVid: supercut
+  queue.loadFile({src:'videos/under_pressure.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //15 bgVid: underPr
+  queue.loadFile({src:'videos/human_history.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //16 bgVid:samsawie
 
 
-  queue.loadFile({src:'videos/gatorSons.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //17 holovid: commercial/ jetsons
-  queue.loadFile({src:'videos/blue_open.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //18 holovid:credits open
-  queue.loadFile({src:'videos/blue_loop.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //19:holovid:credits close
-  queue.loadFile({src:'videos/blue_close.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //20:holovid:credits close
-  queue.loadFile({src:'videos/moonage_daydream.webm', type:createjs.Types.VIDEO, loadTimeout:20000}); //21 bgVid: moonage
+  queue.loadFile({src:'videos/gatorSons.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //17 holovid: commercial/ jetsons
+  queue.loadFile({src:'videos/blue_open.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //18 holovid:credits open
+  queue.loadFile({src:'videos/blue_loop.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //19:holovid:credits close
+  queue.loadFile({src:'videos/blue_close.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //20:holovid:credits close
+  queue.loadFile({src:'videos/moonage_daydream.webm', type:createjs.Types.VIDEO, loadTimeout:30000}); //21 bgVid: moonage
 
   let loaded = 0;
   function handeFileComplete(event){

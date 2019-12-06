@@ -29,13 +29,26 @@ function finalSequence() {
   };
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
-  //button0: RAISE VOLUME
+  //button0:
   button[0].innerHTML = "";
   button[0].onclick = function() {};
-  //button1: LOWER VOLUME
-  button[1].innerHTML = "";
-  button[1].onclick = function() {
-    //holoVid.volume = holoVid.volume - .2;
+  //button1:
+  let paused = false;
+  button[1].innerHTML = "Pause Journey ||";
+  button[1].onclick = function(){
+    if (timeline === "finalSequence"){
+      if (!paused){
+        holoVidCont.childNodes[0].pause();
+        bgVidCont.childNodes[0].pause();
+        button[1].innerHTML = "Resume Journey |>";
+        paused = true;
+      } else if (paused){
+        holoVidCont.childNodes[0].play();
+        bgVidCont.childNodes[0].play();
+        button[1].innerHTML = "Pause Journey ||";
+        paused = false;
+      }
+    }
   };
   //button2 SKIP TO NEXT SEQUENCE
   button[2].innerHTML = "Just roll the credits already!";
@@ -46,20 +59,21 @@ function finalSequence() {
       holoVidCont.childNodes[0].currentTime = 64;
     }
   };
+
   //button3 SKIP TO PREVIOUS
-  button[3].innerHTML = "JumpBack";
+  button[3].innerHTML = "Jump Back <<";
   button[3].onclick = function() {
     if (timeline === "finalSequence") {
       transitionBackward();
     };
   };
   //button 4 toggle menu
-  button[4].innerHTML = ">>";
+  button[4].innerHTML = "|||";
   menuVideo = false;
   button[4].onclick = function() {
     console.log(menuState);
     if (timeline === "finalSequence") {
-      activeButtons = [3, 2];
+      activeButtons = [1, 2, 3];
       menuToggle(activeButtons, undefined, undefined, undefined, undefined);
     };
   };
@@ -77,14 +91,14 @@ function finalSequence() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //called by button
   function transitionBackward() {
-    //remove the video from the holo container
-    clearHoloCont();
     //hide the hologram buttons
     hideButtons();
+    //remove the video from the holo container
+    clearHoloCont();
     //remove video from bg container
     clearBgCont();
     //call next screen
-    leavingEarth();
+    earthMuseum();
   };
 
 
@@ -214,6 +228,14 @@ function finalSequence() {
 
   //~~~~~~~~check when background video is done playing~~~~~~~~
   bgVid.onended = function() {
-
+    clearHoloCont();
+    holoVidCont.appendChild(holoVid4);
+    holoVid4.play()
+    holoVid4.onended = function(){
+      clearHoloCont();
+      hideButtons();
+      let goHomeButton = document.getElementById('homeButton');
+      goHomeButton.style.visibility = "visible";
+    }
   };
 }

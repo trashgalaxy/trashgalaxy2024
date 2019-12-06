@@ -70,7 +70,7 @@ function leavingEarth(){
     button[3].innerHTML = "Jump Backward <<";
     button[3].onclick = function(){
       if (timeline === "leavingEarth"){
-        alert("THERE's NO TURNING BACK")
+        alert("THERE'S NO TURNING BACK")
       }
     };
 

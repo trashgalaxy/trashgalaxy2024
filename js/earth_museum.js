@@ -21,7 +21,7 @@ function earthMuseum() {
   let bgVidLoop = videoArray[13];
   let museumVids = [videoArray[14], videoArray[15], videoArray[16]];
   let currentMuseumVid = 0;
-  let museumVidTitle = ["Now Playing: <br> Earth's Primative rockets",
+  let museumVidTitle = ["Now Playing: <br> Earth's Primitive Rockets",
     "Now Playing: <br> Earth, The Early Years",
     "Now Playing: <br> Earth's Downfall"
   ];

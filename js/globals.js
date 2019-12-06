@@ -9,11 +9,9 @@ let menuVideo = false;
 
 //~~~~~sound variables~~~~~~//
 let hoverSound = new Audio();
-let marioSound = new Audio();
 let welcomeCitizen = new Audio();
 //~~~~~load sounds into the variables  (for HTML)~~~~~~//
 hoverSound.src = 'sounds/tick.mp3';
-marioSound.src = 'sounds/mario.mp3';
 welcomeCitizen.src = 'sounds/Welcome_Citizen.wav';
 
 //~~~~~Background Video Variables~~~~~~//
@@ -39,7 +37,7 @@ let buttonColors = {
   "green": "rgba(0,255,0,.4)",
   "greenHover": "rgba(0,255,0,.2)",
 
-  "purple": "rgba(195,82,221,.4)",
+  "purple": "rgba(195,82,221,.6)",
   "purpleHover": "rgba(195,82,221,.2)",
 
   "red": "rgba(255,0,0,.4)",
