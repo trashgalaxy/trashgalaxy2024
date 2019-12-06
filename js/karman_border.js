@@ -29,23 +29,19 @@ function border(){
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
     //button0 TBD
-  button[0].innerHTML = "Give in to lord Bezos and continue on...";
+  button[0].innerHTML = "";
   button[0].onclick = function(){
-  console.log('button0');
     if(timeline === "border"){
-      hideButtons();
-      transitionForward();
     };
   };
 
   //button1 TBD
-  button[1].innerHTML = "JumpBack";
+  button[1].innerHTML = "Give in, and continue on...";
   button[1].onclick = function(){
-    if(timeline === "border"){
-      transitionBackward();
-    };
-  console.log('button1');
-
+    if (timeline === "border"){
+      hideButtons();
+      transitionForward();
+    }
   };
 
   //button2 OPEN JOURNEY TO PLANET AMAZON GAME
@@ -58,21 +54,24 @@ function border(){
     };
   };
 
-  //button3 TBD
-  button[3].innerHTML = "";
+  //button3:
+  button[3].innerHTML = "Jump Backward <<"
   button[3].onclick = function(){
-    console.log('button3');
-    };
-
-  //button3 TBD
-  button[4].innerHTML = ">>";
-  button[4].onclick = function(){
-  console.log('button3');
-    if(timeline === "border"){
-      activeButtons = [2, 1, 0];
-      menuToggle(activeButtons, undefined, undefined, undefined, undefined);
-    };
+    if (timeline === "border"){
+      hideButtons();
+      transitionBackward();
+    }
   };
+
+    //button4:
+    menuVideo = false;
+    button[4].innerHTML = "|||";
+    button[4].onclick = function(){
+      if (timeline === "border"){
+        activeButtons = [1, 2, 3];
+        menuToggle(activeButtons, undefined, undefined, undefined, undefined);
+      };
+    };
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //called by button
   function transitionForward() {
@@ -146,6 +145,8 @@ function border(){
         holoVidCont.childNodes[0].currentTime = 0;
         holoVid2.loop = true;
         holoVid2.play();
+        annoyUserLocation();
+        annoyUserCamera();
       };
 
 

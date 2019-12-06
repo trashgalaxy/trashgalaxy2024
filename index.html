@@ -56,7 +56,8 @@
 
   queue.on("progress", event => {
 
-    let progress = Math.floor(event.progress *100);
+    //let progress = Math.floor(event.progress *100);
+    let progress = event.progress * 100;
     animation.style.left = progress+'%';
     animation2.style.width = progress+'%';
     if (progress == 100) {

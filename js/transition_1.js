@@ -26,41 +26,61 @@ function trans1(){
     };
   };
 
-  //~~~~~~~~set functionality of buttons~~~~~~~~
-    //button0: RAISE VOLUME
-  button[0].innerHTML = "";
-  button[0].onclick = function(){
-  };
-    //button1: LOWER VOLUME
-  button[1].innerHTML = "";
-  button[1].onclick = function(){
-      //holoVid.volume = holoVid.volume - .2;
-    };
-    //button2 SKIP TO NEXT SEQUENCE
-  button[2].innerHTML = "JumpAhead";
-  button[2].onclick = function(){
-    if (timeline === "trans1"){
-      // transitionForward();
-      hideButtons();
-      holoVidCont.childNodes[0].currentTime = 52;
-      bgVidCont.childNodes[0].currentTime = 52;
+  //~~~~~~~~set content and functionality  of buttons~~~~~~~~
+    //button0:
+    button[0].innerHTML = ""
+    button[0].onclick = function(){
+      if (timeline === "trans1"){
       }
     };
-    //button3 SKIP TO PREVIOUS
-  button[3].innerHTML = "JumpBack";
-  button[3].onclick = function(){
-    if (timeline === "trans1"){
-      transitionBackward();
-      };
+    //button1:
+    let paused = false;
+    button[1].innerHTML = "Pause Journey ||";
+    button[1].onclick = function(){
+      if (timeline === "trans1"){
+        if (!paused){
+          holoVidCont.childNodes[0].pause();
+          bgVidCont.childNodes[0].pause();
+          button[1].innerHTML = "Resume Journey |>";
+          paused = true;
+        } else if (paused){
+          holoVidCont.childNodes[0].play();
+          bgVidCont.childNodes[0].play();
+          button[1].innerHTML = "Pause Journey ||";
+          paused = false;
+        }
+      }
     };
-    //button 4 toggle menu
-    button[4].innerHTML = ">>";
+    //button2:
+    button[2].innerHTML = "Jump Forward >> ";
+    button[2].onclick = function(){
+      if (timeline === "trans1"){
+        holoVidCont.childNodes[0].currentTime = 58;
+        bgVidCont.childNodes[0].currentTime = 58;
+      }
+      //transitionForward();
+      hideButtons();
+    };
+
+    //button3:
+    button[3].innerHTML = "Jump Backward <<"
+    button[3].onclick = function(){
+      if (timeline === "trans1"){
+        hideButtons();
+        transitionBackward();
+      }
+    };
+
+    //button4:
+    menuVideo = false;
+    button[4].innerHTML = "|||";
     button[4].onclick = function(){
       if (timeline === "trans1"){
-        activeButtons = [3,2];
+        activeButtons = [1, 2, 3];
         menuToggle(activeButtons, undefined, undefined, undefined, undefined);
-        };
       };
+    };
+
       //called by button
     function transitionForward() {
       //remove the video from the holo container

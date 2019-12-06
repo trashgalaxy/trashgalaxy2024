@@ -4,13 +4,13 @@
 //
 //
 function leavingEarth(){
+
   //hide the splash screen
   let splashScreen = document.getElementById('splash').style.visibility = "hidden";
   let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
   let loadingAnimation1 = document.getElementById('loadingAnim').style.visibility = "hidden";
   let loadingAnimation2 = document.getElementById('loadingAnim2').style.visibility = "hidden";
   let loadingAnimation3 = document.getElementById('loadingAnim3').style.visibility = "hidden";
-
   //set timeline
   timeline = "leavingEarth";
   //pull the appropriate videos for the sequence
@@ -32,37 +32,54 @@ function leavingEarth(){
 
   //~~~~~~~~set content and functionality  of buttons~~~~~~~~
     //button0:
-    button[0].innerHTML = "";
+    button[0].innerHTML = ""
     button[0].onclick = function(){
-
+      if (timeline === "leavingEarth"){
+      }
     };
     //button1:
-    button[1].innerHTML = "";
+    let paused = false;
+    button[1].innerHTML = "Pause Journey ||";
     button[1].onclick = function(){
-
+      if (timeline === "leavingEarth"){
+        if (!paused){
+          holoVidCont.childNodes[0].pause();
+          bgVidCont.childNodes[0].pause();
+          button[1].innerHTML = "Resume Journey |>";
+          paused = true;
+        } else if (paused){
+          holoVidCont.childNodes[0].play();
+          bgVidCont.childNodes[0].play();
+          button[1].innerHTML = "Pause Journey ||";
+          paused = false;
+        }
+      }
     };
     //button2:
-    button[2].innerHTML = "";
+    button[2].innerHTML = "Jump Forward >> ";
     button[2].onclick = function(){
-
+      if (timeline === "leavingEarth"){
+        holoVidCont.childNodes[0].currentTime = 44;
+        bgVidCont.childNodes[0].currentTime = 44;
+      }
+      //transitionForward();
+      hideButtons();
     };
 
     //button3:
-    button[3].innerHTML = ">> jump forward";
+    button[3].innerHTML = "Jump Backward <<";
     button[3].onclick = function(){
-      //transitionForward();
-      hideButtons();
-      holoVidCont.childNodes[0].currentTime = 43;
-      bgVidCont.childNodes[0].currentTime = 43;
-
-
+      if (timeline === "leavingEarth"){
+        alert("THERE's NO TURNING BACK")
+      }
     };
 
     //button4:
-    button[4].innerHTML = ">>";
+    menuVideo = false;
+    button[4].innerHTML = "|||";
     button[4].onclick = function(){
-      if (timeline = "leaving earth"){
-        activeButtons = [3];
+      if (timeline === "leavingEarth"){
+        activeButtons = [1, 2, 3];
         menuToggle(activeButtons, undefined, undefined, undefined, undefined);
       };
     };

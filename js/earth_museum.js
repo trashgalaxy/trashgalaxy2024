@@ -4,10 +4,14 @@
 //
 //
 function earthMuseum() {
-  timeline = "earthMuseum";
-  //hide the splash screen
   let splashScreen = document.getElementById('splash').style.visibility = "hidden";
   let enterButton = document.getElementById('enterButton').style.visibility = "hidden";
+  let loadingAnimation1 = document.getElementById('loadingAnim').style.visibility = "hidden";
+  let loadingAnimation2 = document.getElementById('loadingAnim2').style.visibility = "hidden";
+  let loadingAnimation3 = document.getElementById('loadingAnim3').style.visibility = "hidden";
+
+  timeline = "earthMuseum";
+
 
   //pull the appropriate videos for the sequence
   let holoVid1 = videoArray[10];
@@ -17,9 +21,9 @@ function earthMuseum() {
   let bgVidLoop = videoArray[13];
   let museumVids = [videoArray[14], videoArray[15], videoArray[16]];
   let currentMuseumVid = 0;
-  let museumVidTitle = ["Now Playing: Earth's Primative rockets",
-    "Now Playing: Earth, The Early Years",
-    "Now Playing: Earth's Downfall"
+  let museumVidTitle = ["Now Playing: <br> Earth's Primative rockets",
+    "Now Playing: <br> Earth, The Early Years",
+    "Now Playing: <br> Earth's Downfall"
   ];
   let currentMuseumVidTitle = 0;
 
@@ -33,6 +37,7 @@ function earthMuseum() {
   let b = document.getElementsByClassName('buttons');
   for (let i = 0; i < b.length; i++) {
     b[i].style.color = buttonColors['green'];
+    b[i].style.textShadow = "1px 1px 2px rgba(127, 127, 127, .4), 0 0 1em rgba(127, 127, 127, .3), 0 0 0.2em rgba(127, 127, 127, .2)";
     b[i].onmouseover = function() {
       b[i].style.color = buttonColors['greenHover'];
       hoverSound.play();
@@ -44,16 +49,18 @@ function earthMuseum() {
 
   //~~~~~~~~set functionality of buttons~~~~~~~~
   //button0 Plays the first film at the drive in
-  button[0].innerHTML = "Welcome To Midway to Mars. Press Next";
+  button[0].style.pointerEvents = "none";
+  button[0].innerHTML = "Welcome To The Midway To Mars <br> Earth Museum!";
   button[0].onclick = function() {
     if (timeline = "earthMuseum") {
     };
   };
   //button1Plays the second film at the drive in
-  button[1].innerHTML = "NEXT";
+  button[1].innerHTML = "Play Content |>";
   button[1].onclick = function() {
-    if (timeline = "earthMuseum") {
+    if (timeline === "earthMuseum") {
       clearBgCont();
+      button[1].innerHTML = "Next Video >>"
       button[0].innerHTML = museumVidTitle[currentMuseumVidTitle];
       bgVidCont.appendChild(museumVids[currentMuseumVid]);
       museumVids[currentMuseumVid].play();
@@ -74,27 +81,24 @@ function earthMuseum() {
   //button2 button0 Plays the third film at the drive in
   button[2].innerHTML = "GTF-OUTTA HERE";
   button[2].onclick = function() {
-    if (timeline = "earthMuseum") {
+    if (timeline === "earthMuseum") {
       hideButtons();
       transitionForward();
     };
   };
   //button3 jump ahead
-  button[3].innerHTML = "Jump Back";
+  button[3].innerHTML = "Jump Backward <<";
   button[3].onclick = function() {
-    if (timeline = "earthMuseum") {
+    if (timeline === "earthMuseum") {
       transitionBackward();
     };
   };
-  //open the menu intitially
-  menuVideo = true;
-  // activeButtons = [3, 2, 1, 0];
   // menuToggle(activeButtons, holoVidCont, holoVid1, holoVid2, holoVid3);
-  //button4 moves on to the next screen
-  button[4].innerHTML = ">>";
+  menuVideo = true;
+  button[4].innerHTML = "|||";
   button[4].onclick = function() {
-    if (timeline = "earthMuseum") {
-      activeButtons = [3, 2, 1, 0];
+    if (timeline === "earthMuseum") {
+      activeButtons = [0, 1, 2, 3];
       menuToggle(activeButtons, holoVidCont, holoVid1, holoVid2, holoVid3);
     };
   };
@@ -107,12 +111,15 @@ function earthMuseum() {
     //play closing holo vid
     holoVidCont.appendChild(holoVid3);
     holoVid3.play();
-    //hide the hologram buttons
-    hideButtons();
-    //remove video from bg container
-    clearBgCont();
-    //call next screen
-    finalSequence();
+    holoVid3.onended = function(){
+      //hide the hologram buttons
+      hideButtons();
+      //remove video from bg container
+      clearBgCont();
+      //call next screen
+      finalSequence();
+    }
+
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //called by button
@@ -165,7 +172,7 @@ function earthMuseum() {
   //~~~~~~~~~~~~~~~when third video ends~~~~~~~~~~~~~~~~~
   holoVid3.onended = function() {
     //remove the video from the holo container
-    clearHoloCont();
+    //clearHoloCont();
     //set the cockpit hologram orb color back to white
     //cockColor.src = cockpitColors["white"];
   };

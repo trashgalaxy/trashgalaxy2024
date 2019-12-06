@@ -115,10 +115,9 @@ function menuToggle(activeButtons, holoVidCont, holoVid1, holoVid2, holoVid3) {
       for (let i = 0; i < activeButtons.length; i++) {
         button[activeButtons[i]].style.opacity = "1";
         button[activeButtons[i]].style.pointerEvents = "auto";
-
       }
     }
-    button[4].innerHTML = "<<"
+    button[4].innerHTML = "|_____|"
     menuState = "open";
   } else if (menuState === "open") {
     if (menuVideo === true) {
@@ -130,7 +129,7 @@ function menuToggle(activeButtons, holoVidCont, holoVid1, holoVid2, holoVid3) {
       holoVidCont.appendChild(holoVid3);
       holoVid3.play();
       holoVid3.onended = function() {
-      clearHoloCont();
+        clearHoloCont();
       }
     } else if (menuVideo === false) {
       for (let i = 0; i < activeButtons.length; i++) {
@@ -140,12 +139,36 @@ function menuToggle(activeButtons, holoVidCont, holoVid1, holoVid2, holoVid3) {
       }
     }
     menuState = "closed";
-    button[4].innerHTML = ">>";
+    button[4].innerHTML = "|||";
 
   }
   console.log(menuState);
 }
+//get users location
+function annoyUserLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
 
+function showPosition(position) {
+  let d = new Date();
+  //console.log(position.coords.latitude);
+  alert("Please Verify: \n" +
+    d +
+    "\nLatitude: " + position.coords.latitude +
+    "\nLongitude: " + position.coords.longitude);
+}
+function annoyUserCamera(){
+  if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    })
+  }
+}
 // holds all of the credits and their urls
 let creditsArray = {
   "TRASH GALAXY 2024": "https://www.github.com/trashgalaxy",
